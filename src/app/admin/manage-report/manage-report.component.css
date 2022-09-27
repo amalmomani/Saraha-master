@@ -1,0 +1,26 @@
+.waed{
+    border: 1px solid #bababa;
+											border-radius: 30px;
+											padding: 7px 13px;
+											text-transform: capitalize;
+									
+                                            cursor: pointer;
+                                            transition: all 0.2s linear 0s;
+                                            color: #fa6342;
+                                            background-color:  #fff;
+                                            box-shadow: #fa6342;
+                                            box-shadow: 4px 7px 12px 0 rgb(250 99 66 / 20%);
+
+                                            margin-bottom:1px ; 
+                                            border-color: #fa6342;
+                                            font-weight: 500;
+
+  }
+  .waed:hover
+  {
+
+    cursor: pointer;
+    color: #fff;
+    background-color: #fa6342;
+
+  }

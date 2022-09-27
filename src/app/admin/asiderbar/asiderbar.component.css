@@ -1,0 +1,12 @@
+.sidebar .widget-title {
+    border-bottom: 1px solid #e6ecf5;
+    color: #515365;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    position: relative;
+    text-transform: capitalize;
+    width: 100%;
+}

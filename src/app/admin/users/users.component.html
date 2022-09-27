@@ -1,0 +1,137 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+<section>
+    <div class="gap gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row merged20" id="page-contents">
+         <div class="row">
+                    <div class="col-lg-3"   >
+                        <app-asiderbar></app-asiderbar>
+                </div><!-- sidebar widgets -->
+
+                <div class="col-lg-9" style=" padding-left: 0px">
+                    <section>
+                        <div class="gap2 gray-bg"style="padding: 0;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row merged20" id="page-contents">
+                                         
+                                            <div class="col-lg-12" >
+                                               
+                                                <div class="central-meta padding30">
+                                                    <h4 class="create-post">All Users</h4>
+                                                    <!-- <a class="main-btn" title="" style="margin-bottom:25px ;" mat-button (click)="openCreateDialog()"> Add User </a> -->
+                                                    <div style="margin-left:156px" class="col-lg-7 col-lg-7 col-sm-7">
+                                                        <form  [formGroup]="searchForm">
+                                                           
+                                                            <input class="mb-2" type="text" formControlName="username" (change)="search()" placeholder="Search By Name">
+                                                            <input class="mb-2" type="text" formControlName="country" (change)="search()" placeholder="Search By Country">
+                                                            <input  type="text" formControlName="gender" (change)="search()" placeholder="Search By Gender">
+                                                        </form>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div *ngFor="let user of this.userService.searchUserResult" class="col-lg-4 col-md-6 col-sm-6">
+                                                            <div class="friend-box">
+                                                                <figure>
+                                                                    <img  src="./assets/sar/images/resources/frnd-cover1.jpg" alt="">
+                                                                </figure>
+                                                                <div class="frnd-meta">
+                                                                    <img  style="     max-height: 70px;
+                                                                    min-height: 70px;
+                                                                    max-width: 70px;
+                                                                    min-width: 70px;" src="../../../assets/{{user.imagepath}}" style="height:70px; width:70px; object-fit:cover ;" alt="">
+                                                                </div>
+                                                                <div class="frnd-meta">
+                                                                   
+                                                                    <ul class="frnd-info">
+                                                                        <li><strong>Username: </strong>{{user.username}}</li>
+                                                                        <li> <strong>Email: </strong> {{user.email}}</li>
+                                                                        <li><strong>Phone number:  </strong>{{user.phonenumber}}</li>
+                                                                        <li> <strong>Gender: </strong>{{user.gender}}</li>
+                                                                    </ul>
+                                                                    <!-- <a class="send-mesg" href="#" title="">Message</a> -->
+                                                                    <div class="more-opotnz">
+                                                                        <i class="fa fa-ellipsis-h"></i>
+                                                                        <ul>
+                                                                          <li><a *ngIf="!user.is_Blocked" (click)="changeBlockStatus(user.loginid,1)" title="">Block</a>
+                                                                          <a *ngIf="user.is_Blocked" (click)="changeBlockStatus(user.loginid,0)" title="">UnBlock</a></li>
+                                                                          <li><a  (click)="deleteAccount(user.loginid,user.userId)" title="">Delete Account</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                       
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>	
+                                        </div>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>	
+                    </section><!-- content -->
+                
+                </div>
+                </div>
+
+        </div>	
+    </div>
+</div>
+</div>
+</div>	
+</section>
+
+
+<div class="bottombar">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<span class="copyright">© Saraha Time 2022. All rights reserved.</span>
+<i><img src="./assets/sar/images/credit-cards.png" alt=""></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<ng-template #callCreateDailog>
+    <form class="example-form" [formGroup]="createUserForm" >
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input type="text" matInput formControlName="username">
+        </mat-form-field>
+    <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email">
+          </mat-form-field>
+    <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>phonenumber </mat-label>
+            <input type="text" matInput formControlName="phonenumber" >
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Country </mat-label>
+            <input type="text" matInput formControlName="country" >
+          </mat-form-field>
+       
+          <br>
+          <mat-label>Image :</mat-label>
+          <input type="file" #file formControlName="imagepath"  (change)="uploadImage(file.files)" >
+  
+          <button (click)="CreateNewUser()">Create</button>
+    </form>
+    
+</ng-template>

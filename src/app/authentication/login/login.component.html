@@ -1,0 +1,82 @@
+<div class="www-layout">
+
+    <section>
+        <div class="gap no-gap signin whitish medium-opacity">
+           <div class="bg-image" style="background-image:url(../assets/sar/images/resources/theme-bg.jpg)"></div>
+             <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="big-ad">
+                            <a class="" href="http://localhost:4200//Home">   <figure><img src="../../../assets/{{home.homePage.logo}}" alt=""></figure>
+                            </a>
+                            <h1>Welcome to the Saraha Time</h1>
+                            <p>
+                                 Saraha Time is a social network template that can be used to connect people. use this template for multipurpose social activities like job, dating, posting, bloging and much more. Now join & Make Cool Friends around the world !!!                             
+                            </p>
+                            
+                          
+                            <div class="barcode">
+                                <!-- <figure><img src="..\assets\sar\images\resources\Barcode.jpg" alt=""></figure> -->
+                                <div class="app-download">
+                                    <span>Comming Soon Mobile App !, Be tuned.. </span>
+                                    <ul class="colla-apps">
+                                        <li><a title="" href="https://play.google.com/store?hl=en"><img src="../assets/sar/images/android.png" alt="">android</a></li>
+                                        <li><a title="" href="https://www.apple.com/lae/ios/app-store/"><img src="../assets/sar/images/apple.png" alt="">iPhone</a></li>
+                                        <li><a title="" href="https://www.microsoft.com/store/apps"><img src="../assets/sar/images/windows.png" alt="">Windows</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="we-login-register">
+                            <div class="form-title">
+                                <i class="fa fa-key"></i>login
+                                <span>sign in now and meet the awesome Friends around the world.</span>
+                            </div>
+                            <form class="we-form" >
+                                <mat-form-field appearance="outline">
+                                <input class="inputfield" type="text" placeholder="Email" matInput [formControl]="username" required >
+                               
+                                  <mat-error *ngIf="username.hasError('required')">
+                                    Email is <strong>required</strong>
+                                  </mat-error>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline" >
+                                    <input class="inputfield" type="password" placeholder="password" matInput [formControl]="password" >
+                                    <mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+                                        Please enter strong password
+                                      </mat-error>
+                                      <mat-error *ngIf="password.hasError('required')">
+                                        password is <strong>required</strong>
+                                      </mat-error>
+                                </mat-form-field>
+<!--                              
+                                <input type="checkbox" [checked]="saveLoginInfo" (change)="saveLoginInfo = !saveLoginInfo"> <label>remember me</label>
+                           -->
+                           <div class="level options" style="    display: -webkit-inline-box;
+                           margin-top: -10px;">
+                           
+                              <input type="checkbox" id="checkbox" class="regular-checkbox" [checked]="saveLoginInfo" (change)="saveLoginInfo = !saveLoginInfo">
+                              <label for="checkbox"></label>
+                              <span>Remember me</span>
+                               
+                          </div>
+                  
+                                <button class="b" type="submit" data-ripple="" (click)="Login()" [disabled]="!username.valid || !password.valid">Login</button>
+                                <a class="forgot underline" (click)="forgetPassword()" title="">forgot password?</a>
+                            </form>
+                            <a class="with-smedia facebook" href="#" title="" data-ripple=""><i class="fa fa-facebook"></i></a>
+                            <a class="with-smedia twitter" href="#" title="" data-ripple=""><i class="fa fa-twitter"></i></a>
+                            <a class="with-smedia instagram" href="#" title="" data-ripple=""><i class="fa fa-instagram"></i></a>
+                            <a class="with-smedia google" href="#" title="" data-ripple=""><i class="fa fa-google-plus"></i></a>
+                            <span>don't have an account? <a class="we-account underline" href="http://localhost:4200/authentication/Register" title="">register now</a></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

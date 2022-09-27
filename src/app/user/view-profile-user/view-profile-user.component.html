@@ -1,0 +1,996 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+
+
+
+<section>
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                        <div class="user-profile">
+                            <figure>
+                                <div class="edit-pp">
+                                    <label class="fileContainer">
+                                        <i class="fa fa-camera"></i>
+                                        <input type="file">
+                                    </label>
+                                </div>
+                                <img src="../../../assets/user/images/resources/fav-banner.jpg" alt="">
+                                <ul class="profile-controls">
+                                  
+                                    <li><a class="send-mesg" (click)="openReportDailog()" title="Report User"
+                                            data-toggle="tooltip">
+                                            <i class="fa fa-flag"></i></a></li>
+                                    <li *ngIf="!followService.isFollowUser && !followService.isBlockUser"><a
+                                            class="send-mesg" (click)="followUser()" title="Follow"
+                                            data-toggle="tooltip">
+                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                        </a></li>
+                                    <li *ngIf="followService.isFollowUser && !followService.isBlockUser"><a class="send-mesg"
+                                            (click)="deleteFollowing()" title="Unfollow" data-toggle="tooltip">
+                                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                                        </a></li>
+                                    <li *ngIf="!followService.isBlockUser"><a class="send-mesg"
+                                            (click)="blockUserAndUpdateUser()" title="Block" data-toggle="tooltip">
+                                            <i class="fa fa-ban" aria-hidden="true"></i>
+                                        </a></li>
+
+                                    <li *ngIf="followService.isBlockUser"><a class="send-mesg"
+                                            (click)="UnblockUser()" title="UnBlock" data-toggle="tooltip">
+                                            <i class="fa fa-window-close" aria-hidden="true"></i>
+                                        </a></li>
+
+
+                                </ul>
+
+                            </figure>
+
+                            <div class="profile-section">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="profile-author">
+                                            <a class="profile-author-thumb" href="about.html">
+                                                <img *ngIf="!this.followService.isUserBlockMee" alt="author"
+                                                    src="../../../assets/{{this.viewService.user.imagepath}}" style="object-fit: cover;
+                      
+                                                    max-width: 155px;
+                                                    min-width: 155px;
+                                                    max-height: 155px;
+                                                    min-height: 155px;">
+                                                <img *ngIf="this.followService.isUserBlockMee" alt="author"
+                                                    src="../../../assets/Unknown_person.jpg">
+                                                <div class="edit-dp">
+                                                    <label class="fileContainer">
+                                                        <i class="fa fa-camera"></i>
+                                                        <input type="file">
+                                                    </label>
+                                                </div>
+                                            </a>
+                                            <div class="author-content">
+                                                <a class="h4 author-name">{{this.viewService.user.username}}</a>
+                                                <div class="country">{{this.viewService.user.country}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <ul class="profile-menu">
+                                            <li>
+                                            </li>
+
+
+
+                                        </ul>
+                                        <ol class="folw-detail">
+
+                                            <li><span>Messages</span><ins>{{messageService.messcount}}</ins></li>
+                                            <li><span>Followers</span><ins>{{followService.follower.length}}</ins></li>
+                                            <li><span>Following</span><ins>{{followService.following.length}}</ins></li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- user profile banner  -->
+                        <div class="col-lg-12" *ngIf="this.followService.isUserBlockMee">
+                            <section>
+                                <div class="gap no-gap  low-opacity z0" style=" background: #3D4B5E !important">
+                                    <div class="eror">
+                                        <div class="bg-image"><img src="../view-profile-user/theme-bg2.jpg" alt="">
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="error-page">
+                                                        <div class="row">
+                                                            <div class="col-lg-2 col-md-3 col-sm-3">
+                                                                <div class="big-font">
+                                                                    <span>Block</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-10 col-md-9 col-sm-9">
+                                                                <div class="error-meta">
+                                                                    <div>
+                                                                        <a href="#" title=""><img src="images/logo.png"
+                                                                                alt=""></a>
+                                                                        <h1>Sorry !</h1>
+                                                                        <span>You have been blocked</span>
+                                                                        <p>
+                                                                            ohpps you can't see the content of this page
+                                                                            !.
+                                                                        </p>
+                                                                        <a class="main-btn"
+                                                                            href="http://localhost:4200/user" title=""
+                                                                            data-ripple="">Back Home</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="col-lg-3" *ngIf="!this.followService.isUserBlockMee">
+                            <aside class="sidebar static left">
+                                <div class="widget">
+                                    <h4 class="widget-title">User Badges</h4>
+                                    <ul class="badgez-widget" *ngIf="viewService.user.is_Premium">
+                                        <li>
+                                            <a href="#" title="1000+ Subscribers" data-toggle="tooltip"><img
+                                                    src="../../../assets/user/images/badges/badge3.png" alt=""></a>
+                                        </li>
+                                    
+                                    </ul>
+                                </div>
+                                <div class="widget">
+                                    <!-- <span class="create-post">Profile intro<a [routerLink]="['/user/editProfile']" title="">Edit Profile</a></span> -->
+
+                                    <h4 class="widget-title">Profile intro</h4>
+                                    <ul class="short-profile">
+                                        <span class="f-title"><i class="fa fa-user"></i> About Me:</span>
+                                        <li>
+                                            <p>
+                                                Hi, I’m {{this.viewService.user.username}}, I’m from
+                                                {{this.viewService.user.country}} ....
+                                                <!-- 36 and I work as a Digital Designer for the “dewwater” Agency in Ontario, Canada -->
+                                            </p>
+                                        </li>
+                                        <li> <span class="f-title"><i class="fa fa-birthday-cake"></i> Birthday:</span>
+
+                                            <p>
+                                                {{this.viewService.user.birthdate |date}}
+                                            </p>
+                                        </li>
+
+                                        <li> <span class="f-title"><i class="fa fa-male"></i> Gender:</span>
+                                            <p>
+                                                {{this.viewService.user.gender}}
+                                            </p>
+                                        </li>
+
+                                        <li> <span class="f-title"><i class="fa fa-globe"></i> Country:</span>
+                                            <p>
+                                                {{this.viewService.user.country}}
+                                            </p>
+                                        </li>
+
+                                        <li> <span class="f-title"><i class="fa fa-envelope"></i> Email &amp;
+                                                Website:</span>
+                                            <p>
+                                                {{this.viewService.user.email}}
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </aside>
+                        </div><!-- sidebar -->
+                        <div class="col-6" *ngIf="!this.followService.isUserBlockMee">
+
+
+                            <div style="margin-top:-5px" class="central-meta"
+                                *ngIf="!this.followService.isUserBlockMee">
+                                <!--Pinned Posts-->
+                                <div *ngFor="let post of this.postService.userpost">
+                                    <div class="">
+                                        <div class=" central-meta item" *ngIf="post.is_Pin && post.postType!='msg'">
+                                            <div class="friend-info">
+                                                <figure>
+                                                    <img src="../../../assets/{{post.autherImage}}"
+                                                        style="object-fit:cover ; width:120px; height: 40px;" alt="">
+                                                </figure>
+                                                <div class="friend-name">
+                                                    <div class="more">
+
+                                                    </div>
+                                                    <ins><a title=""> {{this.viewService.user.username}}</a> <a
+                                                            style="    margin-left: 354px;
+                                                            " class="fa fa-thumb-tack"
+                                                            aria-hidden="true"> Pinned</a>
+                                                    </ins>
+                                                    <span><i class="fa fa-globe"></i> published: {{post.postDate |
+                                                        date}}</span>
+                                                </div>
+                                                <div class="post-meta">
+                                                    <div class="post-map">
+                                                        <div class="description">
+                                                            <p>
+                                                                {{post.postText}}
+                                                            </p>
+                                                        </div>
+                                                        <div class="nearby-map">
+                                                            <figure>
+                                                                <img src="./../../assets/{{post.postImage}}"
+                                                                    alt="">
+                                                            </figure>
+                                                        </div>
+                                                        <ul class="like-dislike">
+                                                            <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                                style="cursor:pointer ;"><a class="bg-blue"
+                                                                    (click)="CreateLike(post.postId)"
+                                                                    title="Like Post"><i class="ti-thumb-up"></i></a>
+                                                            </li>
+                                                            <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                                style="cursor:pointer ;"><a class="bg-red"
+                                                                    (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                                    title="UnLike Post"><i class="ti-thumb-up"></i></a>
+                                                            </li>
+
+
+                                                            <li><a style="align-items:center ;align-content: center;"
+                                                                    class="bg-yellow" title="Report"
+                                                                    (click)="openReportPostDailog()">
+                                                                    <i style="margin-top:3px ;height: 2px;"
+                                                                        class="ti-flag"></i></a></li>
+                                                        </ul>
+                                                    </div><!-- near by map -->
+
+                                                  
+                                                    
+
+                                                    <div class="we-video-info">
+                                                        <ul>
+                                                            <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                                (click)="CreateLike(post.postId)"
+                                                                style="margin-right: 13px;">
+                                                                <span class="views" title="Likes">
+                                                                    <i class="fa fa-thumbs-o-up"></i>
+                                                                    <ins>
+                                                                        {{this.postService.likes.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+                                                            <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                                (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                                style="margin-right: 13px;">
+                                                                <span class="views" title="Likes">
+                                                                    <i class="fa fa-thumbs-up"
+                                                                        style="color:#fa6342"></i>
+                                                                    <ins>
+                                                                        {{this.postService.likes.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="comment" title="Comments">
+                                                                    <a (click)="changePostId(post.postId)" type="button"
+                                                                        class="" data-toggle="modal"
+                                                                        data-target="#Comments">
+                                                                        <i data-target="#exampleModalCenter"
+                                                                            class="fa fa-commenting"></i>
+                                                                    </a>
+
+                                                                    <ins>{{this.postService.Comments.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+
+
+                                                        </ul>
+                                                        <div class="users-thumb-list">
+                                                            <!-- <a data-toggle="tooltip" title="Anderw">
+                                                        <img alt="" src="../../../assets/sar/images/resources/userlist-1.jpg">  
+                                                    </a>
+                                                -->
+                                                            <span><strong></strong> <b></b><a title="">+
+                                                                    {{this.postService.likes.get(post.postId).length}}
+                                                                    more </a>
+                                                                <a (click)="changePostId(post.postId)" type="button"
+                                                                    class="" data-toggle="modal"
+                                                                    data-target="#exampleModalCenter">
+                                                                    See All Likes
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="coment-area" style="display: block;">
+                                                        <ul class="we-comet">
+                                                            <li class="post-comment">
+                                                                <div class="comet-avatar">
+                                                                    <img src="images/resources/nearly1.jpg" alt="">
+                                                                </div>
+                                                                <div class="post-comt-box">
+                                                                    <form [formGroup]="CommentForm">
+                                                                        <textarea formControlName="commenttext"
+                                                                            placeholder="Post your comment"></textarea>
+                                                                        <input formControlName="userid" hidden>
+                                                                        <!-- <input formControlName="postid" value="{{post.postId}}" hidden> -->
+                                                                        <div class="add-smiles">
+
+                                                                            <span class="em em-expressionless"
+                                                                                title="add icon"></span>
+
+
+                                                                        </div>
+                                                                        <a class="addnewforum"
+                                                                            style="color: white;; cursor: pointer;"
+                                                                            (click)="createComment(post.postId)"
+                                                                            type="submit">submit</a>
+
+                                                                    </form>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="coment-area">
+                                                    <ul class="we-comet">
+                                                        <li>
+                                                            <div class="comet-avatar">
+                                                                <img src="../../../assets/sar/images/resources/nearly3.jpg"
+                                                                    alt="">
+                                                            </div>
+                                                            <div class="we-comment">
+                                                                <h5><a href="time-line.html" title="">Jason borne</a>
+                                                                </h5>
+                                                                <p>we are working for the dance and sing songs. this
+                                                                    video is very awesome for the youngster. please vote
+                                                                    this video and like our channel</p>
+                                                                <div class="inline-itms">
+                                                                    <span>1 year ago</span>
+                                                                    <a class="we-reply" href="#" title="Reply"><i
+                                                                            class="fa fa-reply"></i></a>
+                                                                    <a href="#" title=""><i
+                                                                            class="fa fa-heart"></i><span>20</span></a>
+                                                                </div>
+                                                            </div>
+
+                                                        </li>
+
+                                                        <li>
+                                                            <a title="" class="showmore underline">more comments+</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="central-meta item" *ngIf="post.is_Pin && post.postType=='msg'">
+                                            <div class="user-post">
+                                                <div class="friend-info">
+                                                    <figure>
+                                                        <img style="min-width:40px;max-width:40px;min-height:40px;max-height:40px"
+                                                            src="../../../../../assets/{{post.autherImage}}"
+                                                            style="object-fit:cover ; width:120px; height: 40px;" alt="">
+                                                    </figure>
+    
+                                                    <div class="friend-name">
+                                                        <div class="more">
+                                                            <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                                <!-- <ul>
+                                                                <li  (click)="deletePost(post.postId)"><i class="fa fa-trash-o"></i>Delete Post</li>                                                    
+                                                                <li (click)="PinPost(post.postId,1)"><i class="fa fa-wpexplorer"></i>Pin Post</li>
+                                                                
+                                                            </ul> -->
+                                                            </div>
+                                                        </div>
+                                                        <ins><a title="" href="time-line.html">{{post.auther}}</a><a
+                                                            style="margin-left:200px ;" class="fa fa-thumb-tack"
+                                                            aria-hidden="true"> Pinned</a></ins>
+                                                        <span>published: {{post.postDate| date :'M/d/yy, h:mm a' }}</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        <p style="margin-left:6px ;">
+                                                            {{post.postReply}}
+    
+                                                        </p>
+                                                    </div>
+                                                    <div class="post-meta">
+                                                        <div class="linked-image align-left">
+                                                        </div>
+                                                        <div class="detail" style=" margin-left: -147px;">
+    
+                                                            <div class="description">
+                                                                <div class="share-post" style="    min-height: 100px;max-height: 100px;
+                                                            min-width: 460px;max-width: 460px;">
+                                                                    <figure>
+                                                                        <i class="fa fa-share"></i>
+                                                                    </figure>
+                                                                    <div class="origin-name">
+                                                                        <a href="#" title="">Saraha Message</a>
+                                                                    </div>
+                                                                    <p style="margin-left: 0px;">
+                                                                        {{post.postText}}
+    
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+    
+    
+                                                        </div>
+    
+                                                        <div class="we-video-info">
+                                                            <ul>
+                                                                <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                                    (click)="CreateLike(post.postId)"
+                                                                    style="margin-right: 13px;">
+                                                                    <span class="views" title="Likes">
+                                                                        <i class="fa fa-thumbs-o-up"></i>
+                                                                        <ins>
+                                                                            {{this.postService.likes.get(post.postId).length}}
+                                                                        </ins>
+                                                                    </span>
+                                                                </li>
+                                                                <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                                    (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                                    style="margin-right: 13px;">
+                                                                    <span class="views" title="Likes">
+                                                                        <i class="fa fa-thumbs-up"
+                                                                            style="color:#fa6342"></i>
+                                                                        <ins>
+                                                                            {{this.postService.likes.get(post.postId).length}}
+                                                                        </ins>
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="comment" title="Comments">
+                                                                        <a (click)="changePostId(post.postId)" type="button"
+                                                                            class="" data-toggle="modal"
+                                                                            data-target="#Comments">
+                                                                            <i data-target="#exampleModalCenter"
+                                                                                class="fa fa-commenting"></i>
+                                                                        </a>
+    
+                                                                        <ins>{{this.postService.Comments.get(post.postId).length}}
+                                                                        </ins>
+                                                                    </span>
+                                                                </li>
+    
+    
+                                                            </ul>
+                                                            <div class="users-thumb-list">
+                                                                <!-- <a data-toggle="tooltip" title="Anderw">
+                                                                <img alt="" src="../../../assets/sar/images/resources/userlist-1.jpg">  
+                                                            </a>
+                                                        -->
+                                                                <span><strong></strong> <b></b><a title="">+
+                                                                        {{this.postService.likes.get(post.postId).length}}
+                                                                        more </a>
+                                                                    <a (click)="changePostId(post.postId)" type="button"
+                                                                        class="" data-toggle="modal"
+                                                                        data-target="#exampleModalCenter">
+                                                                        See All Likes
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+    
+                                                        <div class="coment-area" style="display: block;">
+                                                            <ul class="we-comet">
+                                                                <li class="post-comment">
+                                                                    <div class="comet-avatar">
+                                                                        <img src="images/resources/nearly1.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="post-comt-box">
+                                                                        <form [formGroup]="CommentForm">
+                                                                            <textarea style=" margin-left: -22px;"
+                                                                                formControlName="commenttext"
+                                                                                placeholder="Post your comment"></textarea>
+                                                                            <input formControlName="userid" hidden>
+                                                                            <!-- <input formControlName="postid" value="{{post.postId}}" hidden> -->
+                                                                            <div class="add-smiles">
+    
+    
+                                                                            </div>
+                                                                            <a class="addnewforum"
+                                                                                style="color: white;; cursor: pointer;    margin-right: 19px; margin-top: 10px;"
+                                                                                (click)="createComment(post.postId)"
+                                                                                type="submit">submit</a>
+    
+                                                                        </form>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <!--************************************* Pinnn Posttt Finish ************************************************-->
+                            <div *ngIf="!this.followService.isUserBlockMee">
+                                <div *ngFor="let post of this.postService.userpost">
+                                    <div class="central-meta item" *ngIf="post.postType=='msg' && !post.is_Pin">
+                                        <div class="user-post">
+                                            <div class="friend-info">
+                                                <figure>
+                                                    <img style="min-width:40px;max-width:40px;min-height:40px;max-height:40px"
+                                                        src="../../../../../assets/{{post.autherImage}}"
+                                                        style="object-fit:cover ; width:120px; height: 40px;" alt="">
+                                                </figure>
+
+                                                <div class="friend-name">
+                                                    <div class="more">
+                                                        <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                            <!-- <ul>
+                                                            <li  (click)="deletePost(post.postId)"><i class="fa fa-trash-o"></i>Delete Post</li>                                                    
+                                                            <li (click)="PinPost(post.postId,1)"><i class="fa fa-wpexplorer"></i>Pin Post</li>
+                                                            
+                                                        </ul> -->
+                                                        </div>
+                                                    </div>
+                                                    <ins><a title="" href="time-line.html">{{post.auther}}</a></ins>
+                                                    <span>published: {{post.postDate| date :'M/d/yy, h:mm a' }}</span>
+                                                </div>
+                                                <div class="description">
+                                                    <p style="margin-left:6px ;">
+                                                        {{post.postReply}}
+
+                                                    </p>
+                                                </div>
+                                                <div class="post-meta">
+                                                    <div class="linked-image align-left">
+                                                    </div>
+                                                    <div class="detail" style=" margin-left: -147px;">
+
+                                                        <div class="description">
+                                                            <div class="share-post" style="    min-height: 100px;max-height: 100px;
+                                                        min-width: 460px;max-width: 460px;">
+                                                                <figure>
+                                                                    <i class="fa fa-share"></i>
+                                                                </figure>
+                                                                <div class="origin-name">
+                                                                    <a href="#" title="">Saraha Message</a>
+                                                                </div>
+                                                                <p style="margin-left: 0px;">
+                                                                    {{post.postText}}
+
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="we-video-info">
+                                                        <ul>
+                                                            <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                                (click)="CreateLike(post.postId)"
+                                                                style="margin-right: 13px;">
+                                                                <span class="views" title="Likes">
+                                                                    <i class="fa fa-thumbs-o-up"></i>
+                                                                    <ins>
+                                                                        {{this.postService.likes.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+                                                            <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                                (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                                style="margin-right: 13px;">
+                                                                <span class="views" title="Likes">
+                                                                    <i class="fa fa-thumbs-up"
+                                                                        style="color:#fa6342"></i>
+                                                                    <ins>
+                                                                        {{this.postService.likes.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="comment" title="Comments">
+                                                                    <a (click)="changePostId(post.postId)" type="button"
+                                                                        class="" data-toggle="modal"
+                                                                        data-target="#Comments">
+                                                                        <i data-target="#exampleModalCenter"
+                                                                            class="fa fa-commenting"></i>
+                                                                    </a>
+
+                                                                    <ins>{{this.postService.Comments.get(post.postId).length}}
+                                                                    </ins>
+                                                                </span>
+                                                            </li>
+
+
+                                                        </ul>
+                                                        <div class="users-thumb-list">
+                                                            <!-- <a data-toggle="tooltip" title="Anderw">
+                                                            <img alt="" src="../../../assets/sar/images/resources/userlist-1.jpg">  
+                                                        </a>
+                                                    -->
+                                                            <span><strong></strong> <b></b><a title="">+
+                                                                    {{this.postService.likes.get(post.postId).length}}
+                                                                    more </a>
+                                                                <a (click)="changePostId(post.postId)" type="button"
+                                                                    class="" data-toggle="modal"
+                                                                    data-target="#exampleModalCenter">
+                                                                    See All Likes
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="coment-area" style="display: block;">
+                                                        <ul class="we-comet">
+                                                            <li class="post-comment">
+                                                                <div class="comet-avatar">
+                                                                    <img src="images/resources/nearly1.jpg" alt="">
+                                                                </div>
+                                                                <div class="post-comt-box">
+                                                                    <form [formGroup]="CommentForm">
+                                                                        <textarea style=" margin-left: -22px;"
+                                                                            formControlName="commenttext"
+                                                                            placeholder="Post your comment"></textarea>
+                                                                        <input formControlName="userid" hidden>
+                                                                        <!-- <input formControlName="postid" value="{{post.postId}}" hidden> -->
+                                                                        <div class="add-smiles">
+
+
+                                                                        </div>
+                                                                        <a class="addnewforum"
+                                                                            style="color: white;; cursor: pointer;    margin-right: 19px; margin-top: 10px;"
+                                                                            (click)="createComment(post.postId)"
+                                                                            type="submit">submit</a>
+
+                                                                    </form>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- centerl meta -->
+                            <div *ngFor="let post of this.postService.userpost">
+                                <div *ngIf="!post.is_Pin && post.postType=='post'" class="central-meta item">
+
+                                    <!--Postttt-->
+
+                                    <div class="user-post">
+                                        <div class="friend-info">
+                                            <figure>
+                                                <img src="../../../assets/{{post.autherImage}}"
+                                                    style="object-fit:cover ; width:120px; height: 40px; " alt="">
+                                            </figure>
+                                            <div class="friend-name">
+
+                                                <ins><a href="time-line.html" title=""> {{post.auther}}</a></ins>
+                                                <span><i class="fa fa-globe"></i> published: {{post.postDate | date
+                                                    :'M/d/yy, h:mm a' }}</span>
+                                            </div>
+
+                                            <div class="post-meta">
+                                                <div class="post-map">
+                                                    <div class="description">
+                                                        <p>
+                                                            {{post.postText}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="nearby-map" *ngIf="post.postImage!=null">
+                                                        <figure>
+                                                            <img src="./../../assets/{{post.postImage}}" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <ul class="like-dislike">
+                                                        <!-- <li style="cursor:pointer ;" (click)="PinPost(post.postId,1)"><a class="bg-purple" title="Save to Pin Post"><i class="fa fa-thumb-tack"></i></a></li> -->
+                                                        <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                            style="cursor:pointer ;"><a class="bg-blue"
+                                                                (click)="CreateLike(post.postId)" title="Like Post"><i
+                                                                    class="ti-thumb-up"></i></a>
+                                                        </li>
+                                                        <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                            style="cursor:pointer ;"><a class="bg-red"
+                                                                (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                                title="UnLike Post"><i class="ti-thumb-up"></i></a>
+                                                        </li>
+                                                        <li><a style="align-items:center ;align-content: center;"
+                                                                class="bg-yellow" title="Report"
+                                                                (click)="openReportPostDailog()">
+                                                                <i style="margin-top:3px ;height: 2px;"
+                                                                    class="ti-flag"></i></a></li>
+
+
+                                                    </ul>
+                                                </div><!-- near by map -->
+
+                                               
+                                                <div class="we-video-info">
+                                                    <ul>
+                                                        <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                            (click)="CreateLike(post.postId)"
+                                                            style="margin-right: 13px;">
+                                                            <span class="views" title="Likes">
+                                                                <i class="fa fa-thumbs-o-up"></i>
+                                                                <ins> {{this.postService.likes.get(post.postId).length}}
+                                                                </ins>
+                                                            </span>
+                                                        </li>
+                                                        <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                            (click)="this.postService.removeLike(this.userService.user.userid,post.postId)"
+                                                            style="margin-right: 13px;">
+                                                            <span class="views" title="Likes">
+                                                                <i class="fa fa-thumbs-up" style="color:#fa6342"></i>
+                                                                <ins> {{this.postService.likes.get(post.postId).length}}
+                                                                </ins>
+                                                            </span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="comment" title="Comments">
+                                                                <a (click)="changePostId(post.postId)" type="button"
+                                                                    class="" data-toggle="modal"
+                                                                    data-target="#Comments">
+                                                                    <i data-target="#exampleModalCenter"
+                                                                        class="fa fa-commenting"></i>
+                                                                </a>
+                                                                <ins>{{this.postService.Comments.get(post.postId).length}}</ins>
+                                                            </span>
+                                                        </li>
+
+
+                                                    </ul>
+                                                    <div class="users-thumb-list">
+
+                                                        <span><strong></strong> <b></b><a title="">+
+                                                                {{this.postService.likes.get(post.postId).length}} more
+                                                            </a>
+                                                            <a (click)="changePostId(post.postId)" type="button"
+                                                                class="" data-toggle="modal"
+                                                                data-target="#exampleModalCenter">
+                                                                See All Likes
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="coment-area" style="display: block;">
+                                                    <ul class="we-comet">
+                                                        <li class="post-comment">
+                                                            <div class="comet-avatar">
+                                                                <img src="images/resources/nearly1.jpg" alt="">
+                                                            </div>
+                                                            <div class="post-comt-box">
+                                                                <form [formGroup]="CommentForm">
+                                                                    <textarea style="    margin-left: -22px;"
+                                                                        formControlName="commenttext"
+                                                                        placeholder="Post your comment"></textarea>
+                                                                    <input formControlName="userid" hidden>
+                                                                    <!-- <input formControlName="postid" value="{{post.postId}}" hidden> -->
+                                                                    <div class="add-smiles">
+
+                                                                        <span class="" title=""></span>
+
+
+                                                                    </div>
+                                                                    <a class="addnewforum" style="color: white;    margin-right: 19px;
+                                                                margin-top: 10px; cursor: pointer;"
+                                                                        (click)="createComment(post.postId)"
+                                                                        type="submit">submit</a>
+
+                                                                </form>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-3" *ngIf="!this.followService.isUserBlockMee">
+                            <aside class="sidebar static right">
+
+
+                                <div class="central-meta">
+                                    <div class="create-post">Send Message</div>
+                                    <div class="contact-box">
+                                        <form class="example-form" [formGroup]="sendMessageForm">
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Message Content</mat-label>
+                                                <textarea rows="4" type="text" matInput
+                                                    formControlName="messageContent">
+                                              </textarea>
+                                            </mat-form-field>
+                                            <br>
+                                            <div class="setting-row">
+                                                <span>Ask Anonymously</span>
+                                                <input type="checkbox" id="switch00"
+                                                    (change)="changeAnonymously($event)" />
+                                                <label for="switch00" data-off-label="OFF"></label>
+                                            </div>
+
+
+                                            <button (click)="replyMessage()">Send Message</button>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="widget" style="height:30px ;">
+                                    <div class="weather-widget low-opacity bluesh" style="height:332px ;">
+                                        <div class="bg-image"
+                                            style="background-image: url(../assets/sar/images/resources/weather.jpg)">
+                                        </div>
+                                        <span class="refresh-content"><i class="fa fa-refresh"></i></span>
+                                        <div class="weather-week">
+                                            <div class="icon sun-shower">
+                                                <div class=""></div>
+                                                <div class="sun">
+                                                    <div class="rays"></div>
+                                                </div>
+                                                <div class=""></div>
+                                            </div>
+                                        </div>
+                                        <div class="weather-infos">
+                                            <span class="weather-tem">{{userService.weather.temp}}</span>
+                                            <h3>{{userService.weather.description}}<i>{{userService.weather.city}} ,
+                                                    {{userService.weather.country}}</i></h3>
+                                            <div class="weather-date skyblue-bg">
+                                                <span>{{mnth}}<strong>{{day1}}</strong></span>
+                                            </div>
+                                        </div>
+
+
+                                    </div><!-- Weather Widget -->
+                                </div>
+
+
+
+                            </aside>
+                        </div><!-- sidebar -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- content -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Likes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngFor="let user of this.postService.likes.get(this.postId)">
+
+                <img src="../../../assets/{{user.userLikeImage}}" hight="50" width="50" class="topic-data" alt="">
+                {{user.likeFrom}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="Comments">
+    <div class="modal-dialog" style="max-width:600px ;">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">Comments
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="col-lg-12">
+
+                    <div style="display: block;" class="coment-area">
+                        <ul class="we-comet">
+                            <li *ngFor="let comment of this.postService.Comments.get(this.postId)">
+                                <div class="comet-avatar">
+                                    <img alt="" src="../../../assets/{{comment.image}}"
+                                        style="width:50px ; height: 50px; object-fit: contain;">
+                                </div>
+                                <div class="we-comment">
+                                    <h5 style="color:#FA6342 ;"><a title=""
+                                            href="time-line.html">{{comment.commentFrom}}</a></h5>
+                                    <p style="margin:30px ;"> {{comment.commentText}}</p>
+                                    <div class="inline-itms">
+                                        <span>{{comment.commentDate| date}}</span>
+                                        <a title="Reply" href="#" class="we-reply"><i class="fa fa-reply"></i></a>
+                                        <a title="" href="#"><i class="fa fa-heart"></i><span>20</span></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>
+
+<ng-template #callReportDailog>
+    <form class="example-form" [formGroup]="reportForm">
+        <select formControlName="Message" style="width: 300px;" (change)="changeOther()">
+            <option>Pretending to be someone</option>
+            <option>Fake account</option>
+            <option>Fake name</option>
+            <option>Posting inappropriate things</option>
+            <option>Other</option>
+        </select>
+
+        <br>
+        <br>
+        <mat-form-field style="width: 300px;" [hidden]="!isOther" class="example-full-width" appearance="fill">
+            <mat-label>Other: </mat-label>
+            <textarea rows="4" type="text" matInput formControlName="Message">
+        </textarea>
+
+        </mat-form-field>
+        <br>
+        <br>
+        <button [mat-dialog-close]="true" (click)="reportUser()">Report</button>
+    </form>
+
+</ng-template>
+
+<ng-template #callReportPostDailog>
+    <form class="example-form" [formGroup]="reportForm">
+        <select formControlName="Message" style="width: 300px;" (change)="changeOther()">
+            <option>Irrelevant content</option>
+            <option>Spam</option>
+            <option>Hate speech</option>
+            <option>Violence</option>
+            <option>Other</option>
+        </select>
+
+        <br>
+        <br>
+        <mat-form-field style="width: 300px;" [hidden]="!isOther" class="example-full-width" appearance="fill">
+            <mat-label>Other: </mat-label>
+            <textarea rows="4" type="text" matInput formControlName="Message">
+        </textarea>
+
+        </mat-form-field>
+        <br>
+        <br>
+        <button [mat-dialog-close]="true" (click)="reportUser()">Report</button>
+    </form>
+
+</ng-template>

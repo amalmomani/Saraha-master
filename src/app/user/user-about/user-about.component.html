@@ -1,0 +1,355 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                    <app-profile-bar></app-profile-bar>
+                    <div class="col-lg-12">
+                        <div class="tab-content">
+                       
+                        
+                            <div class="tab-pane fade active show" id="link3">
+                                <div class="">
+                                
+                                    <div class="row merged20">
+
+
+                    <div class="col-lg-3">
+                        <aside class="sidebar">
+                            <div class="central-meta stick-widget">
+                                <span class="create-post">Personal Info<a [routerLink]="['/user/editProfile']" title="">Edit Profile</a></span>
+                                <div class="personal-head">
+                                    <span class="f-title"><i class="fa fa-user"></i> About Me:</span>
+                                    <p>
+                                        Hi, I’m {{this.userService.user.username}}, I’m from {{this.userService.user.country}} ....
+                                        <!-- 36 and I work as a Digital Designer for the “dewwater” Agency in Ontario, Canada -->
+                                    </p>
+                                    <span class="f-title"><i class="fa fa-birthday-cake"></i> Birthday:</span>
+                                    <p>
+                                      {{this.userService.user.birthdate |date}}
+                                    </p>
+                                    <span class="f-title"><i class="fa fa-phone"></i> Phone Number:</span>
+                                    <p>
+                                      
+                                        {{this.userService.user.phonenumber}}
+                                    </p>
+                                   
+                                    <span class="f-title"><i class="fa fa-male"></i> Gender:</span>
+                                    <p>
+                                       {{this.userService.user.gender}}
+                                    </p>
+                                    <span class="f-title"><i class="fa fa-globe"></i> Country:</span>
+                                    <p>
+                                     {{this.userService.user.country}}
+                                    </p>
+                                  
+    
+                                    <span class="f-title"><i class="fa fa-envelope"></i> Email &amp; Website:</span>
+                                    <p>
+                                        {{this.userService.user.email}} 
+                                    </p>
+    
+                                </div>
+                            </div>
+                        </aside>	
+                    </div>	
+                    
+
+            <!-- **************************************************************** -->
+            <div class="col-lg-9 col-md-9" >
+                <div class="central-meta">
+                    <span class="create-post">Top Posts<a [routerLink]="['/user/']" title="">See All</a></span>
+
+                    <div *ngFor="let post of this.postService.Top3post.slice(this.postService.Top3post.length - 4,this.postService.Top3post.length-1)"  >
+                            <div *ngIf="post.postType=='post'" class="central-meta item">
+
+                                <!--Postttt-->
+
+                                <div >
+                                    <div class="friend-info">
+                                        <figure>
+                                            <img src="../../../assets/{{this.userService.user.imagepath}}"
+                                                style="object-fit:cover ; width:40px; height: 40px; " alt="">
+                                        </figure>
+                                        <div class="friend-name">
+                                            <div class="more">
+                                                <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                   
+                                                </div>
+                                            </div>
+                                            <ins><a href="time-line.html" title=""> {{post.auther}}</a></ins>
+                                            <span><i class="fa fa-globe"></i> published: {{post.postDate | date
+                                                :'M/d/yy, h:mm a' }}</span>
+                                        </div>
+
+                                        <div class="post-meta">
+                                            <div class="post-map">
+                                                <div class="description">
+                                                    <p>
+                                                        {{post.postText}}
+                                                    </p>
+                                                </div>
+                                                <div class="nearby-map" *ngIf="post.postImage!=null">
+                                                    <figure>
+                                                        <img src="./../../assets/{{post.postImage}}" alt="">
+                                                    </figure>
+                                                </div>
+                                                <ul class="like-dislike">
+                                                   
+
+                                                </ul>
+                                            </div><!-- near by map -->
+
+
+                                            <div class="we-video-info">
+                                                <ul>
+                                                    <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                       
+                                                        style="margin-right: 13px;">
+                                                        <span class="views" title="views">
+                                                            <i class="fa fa-thumbs-o-up"></i>
+                                                            <ins>
+                                                                {{this.postService.likes.get(post.postId).length}}
+                                                            </ins>
+                                                        </span>
+                                                    </li>
+                                                    <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                       
+                                                        style="margin-right: 13px;">
+                                                        <span class="views" title="views">
+                                                            <i class="fa fa-thumbs-up"
+                                                                style="color:#fa6342"></i>
+                                                            <ins>
+                                                                {{this.postService.likes.get(post.postId).length}}
+                                                            </ins>
+                                                        </span>
+                                                    </li>
+
+
+                                                    <li>
+                                                        <span class="comment" title="Comments">
+                                                            <a (click)="changePostId(post.postId)" type="button"
+                                                                class="" data-toggle="modal"
+                                                                data-target="#Comments">
+                                                                <i data-target="#exampleModalCenter"
+                                                                    class="fa fa-commenting"></i>
+                                                            </a>
+                                                            <ins>{{this.postService.Comments.get(post.postId).length}}</ins>
+                                                        </span>
+                                                    </li>
+
+
+                                                </ul>
+                                                <div class="users-thumb-list">
+
+                                                    <span><strong></strong> <b></b><a title="">+
+                                                            {{this.postService.likes.get(post.postId).length}}
+                                                            more </a>
+                                                        <a (click)="changePostId(post.postId)" type="button"
+                                                            class="" data-toggle="modal"
+                                                            data-target="#exampleModalCenter">
+                                                            See All Likes
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="coment-area" style="display: block;">
+                                                
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="central-meta item" *ngIf="post.postType=='msg'">
+                                <div class="user-post">
+                                    <div class="friend-info">
+                                        <figure>
+                                            <img style="min-width:40px;max-width:40px;min-height:40px;max-height:40px"
+                                                src="../../../../../assets/{{this.userService.user.imagepath}}"
+                                                style="object-fit:cover ; width:40px; height: 40px;" alt="">
+                                                
+                                        </figure>
+
+                                        <div class="friend-name">
+                                            <div class="more">
+                                                <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                  
+                                                </div>
+                                            </div>
+                                            <ins><a title="" href="time-line.html">{{post.auther}}</a></ins>
+                                            <span>published: {{post.postDate| date :'M/d/yy, h:mm a' }}</span>
+                                        </div>
+                                        <div class="description">
+                                            <p style="margin-left:6px ;">
+                                                {{post.postReply}}
+
+                                            </p>
+                                        </div>
+                                        <div class="post-meta">
+                                            <div class="linked-image align-left">
+                                            </div>
+                                            <div class="detail" style=" margin-left: -147px;">
+
+                                                <div class="description">
+                                                    <div class="share-post" style="    min-height: 100px;max-height: 100px;
+                                                    min-width: 460px;max-width: 460px;">
+                                                        <figure>
+                                                            <i class="fa fa-share"></i>
+                                                        </figure>
+                                                        <div class="origin-name">
+                                                            <a href="#" title="">Saraha Message</a>
+                                                        </div>
+                                                        <p style="margin-left: 0px;">
+                                                            {{post.postText}}
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="we-video-info">
+                                                <ul>
+                                                    <li *ngIf="!this.postService.IsLike.get(post.postId)"
+                                                      
+                                                        style="margin-right: 13px;">
+                                                        <span class="views" title="views">
+                                                            <i class="fa fa-thumbs-o-up"></i>
+                                                            <ins>
+                                                                {{this.postService.likes.get(post.postId).length}}
+                                                            </ins>
+                                                        </span>
+                                                    </li>
+                                                    <li *ngIf="this.postService.IsLike.get(post.postId)"
+                                                       
+                                                        style="margin-right: 13px;">
+                                                        <span class="views" title="views">
+                                                            <i class="fa fa-thumbs-up"
+                                                                style="color:#fa6342"></i>
+                                                            <ins>
+                                                                {{this.postService.likes.get(post.postId).length}}
+                                                            </ins>
+                                                        </span>
+                                                    </li>
+
+
+                                                    <li>
+                                                        <span class="comment" title="Comments">
+                                                            <a (click)="changePostId(post.postId)" type="button"
+                                                                class="" data-toggle="modal"
+                                                                data-target="#Comments">
+                                                                <i data-target="#exampleModalCenter"
+                                                                    class="fa fa-commenting"></i>
+                                                            </a>
+
+                                                            <ins>{{this.postService.Comments.get(post.postId).length}}
+                                                            </ins>
+                                                        </span>
+                                                    </li>
+
+
+                                                </ul>
+                                                <div class="users-thumb-list">
+                                                    <!-- <a data-toggle="tooltip" title="Anderw">
+                                                        <img alt="" src="../../../assets/sar/images/resources/userlist-1.jpg">  
+                                                    </a>
+                                                -->
+                                                    <span><strong></strong> <b></b><a title="">+
+                                                            {{this.postService.likes.get(post.postId).length}}
+                                                            more </a>
+                                                        <a (click)="changePostId(post.postId)" type="button"
+                                                            class="" data-toggle="modal"
+                                                            data-target="#exampleModalCenter">
+                                                            See All Likes
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                          
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+            
+            </div></div>
+    
+</div>
+</div>
+</div>
+   
+</div>	
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Likes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngFor="let user of this.postService.likes.get(this.postId)">
+
+                <img src="../../../assets/{{user.userLikeImage}}" style="border-radius:50%; object-fit:cover; height:50px; width:50px" class="topic-data" alt="">
+                {{user.likeFrom}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Comments">
+    <div class="modal-dialog" style="max-width:600px ;">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">Comments
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="col-lg-12">
+
+                    <div style="display: block;" class="coment-area">
+                        <ul class="we-comet">
+                            <li *ngFor="let comment of this.postService.Comments.get(this.postId)">
+                                <div class="comet-avatar">
+                                    <img alt="" src="../../../assets/{{comment.image}}"
+                                    style="border-radius:50%; object-fit:cover; height:50px; width:50px">
+                                </div>
+                                <div class="we-comment">
+                                    <h5 style="color:#FA6342 ;">{{comment.commentFrom}}</h5>
+                                    <br>
+                                    <p > {{comment.commentText}}</p>
+                                    <div class="inline-itms">
+                                        <span>{{comment.commentDate| date}}</span>
+                                       
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>

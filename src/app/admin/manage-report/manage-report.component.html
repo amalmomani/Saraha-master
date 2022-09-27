@@ -1,0 +1,94 @@
+
+<app-header></app-header>
+
+
+
+
+<div class="theme-layout">
+
+<section >
+    <div class="gap gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row merged20" id="page-contents">
+           
+        
+                <div class="row">
+                  <div class="col-lg-3">
+                      <app-asiderbar></app-asiderbar>
+              </div><!-- sidebar widgets -->
+
+<div class="col-lg-9">
+                <div class="central-meta " >
+                  <!-- <div class="forum-open"> -->
+
+                    <h4 class="create-post">All Reported Users <span style="color:white; background-color: #fa6342e8; border-radius:5px ; padding:5px ;" >{{report.reports.length}}</span></h4>
+                    <table class="table table-responsive" style="vertical-align:middle;">
+                      <thead>
+                        <tr style="text-align:center ;">
+                          <th>User</th>
+                          <th>Report Message</th>
+                          <th>Report count</th>
+                          <th></th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let obj of report.reports">
+                        <tr style="text-align:center ;">
+                          <td  class="topic-data" style="vertical-align:middle;">
+                            <img style="margin:20px ;" src="./assets/{{obj.imageName}}" style="height:70px; width:70px; object-fit:cover ;" alt="">
+                            <span> {{obj.username}}</span>
+                            <!-- <em>Participant</em> -->
+                          </td>
+                       
+                          <td style="vertical-align:middle;">
+                            <p style="margin-bottom:50px ;margin-top: 50px; text-align: center;align-content: center;">{{obj.message}}</p>
+                          </td>
+                          <td style="vertical-align:middle;padding-left: 0px;">
+                            <span style="padding-top:50px ;">{{obj.count}} Report</span>
+                          </td>
+                          <td style="vertical-align:middle;width:120px; padding: 5px;" class="date-n-reply"> 
+                            <a class="waed" style="margin-bottom: 35px ;    margin-top: 40px;" *ngIf="!obj.is_blocked" (click)="changeBlockStatus(obj.loginId,1)" title=""> Block  <i class="fa fa-close"></i></a>
+                            <a class="waed" style="margin-bottom: 35px ;     margin-top: 40px;" *ngIf="obj.is_blocked" (click)="changeBlockStatus(obj.loginId,0)" title="">UnBlock <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                            </td>
+                          <td style="vertical-align:middle; width: 120px;padding: 5px;" class="date-n-reply"> 
+                            <a [routerLink]="['/admin/compose/',obj.userId]" class="waed" style=" margin-top: 5px;" title=""> Contact <i class="fa fa-envelope"></i></a>
+                          </td>
+                          
+                          <!-- (click)="contactrepory(obj.userto)"  -->
+                          </tr>
+                        <!-- <tr>
+                          <td class="topic-data">
+                            <img src="./assets/sar/images/resources/forum-author1.png" alt="">
+                            <span>sarah smith</span>
+                          </td>
+                       
+                          <td class="topic-detail">
+                            <p style="margin-left:30px ; text-align: center;align-content: center;">Nulla sodales, metus non rutrum condimentum, nunc dolor rhoncus arcu, at ultrices dolor libero in tellus. Phasellus quis neque eu diam eget turpis dapibus, in dictum sem gravida. Aliquam lacinia est vitae elit blandit.</p>
+                          </td>
+                          <td class="date-n-reply">
+                            <span>October 13, 2019 at 9:31 pm</span>
+                          </td>
+                      
+                          <td class="date-n-reply">
+                            <a class="addnewforum" style="color: white;" href="forum-create-topic.html" title=""> Block <i class="fa fa-close"></i></a></td>
+                        </tr> -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+
+
+              </div>
+              </div>
+                </div>
+     
+
+                <!-- </div> -->
+            </div>
+          </div>
+      </div>
+</section>
+

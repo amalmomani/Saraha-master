@@ -1,0 +1,94 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+<section>
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                       <app-profile-bar></app-profile-bar>
+                    
+                    
+                       <div class="col-lg-12">
+                        <div class="central-meta">
+                            <div class="title-block">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="align-left">
+                                            <h5>Saraha Users : <span>{{this.userService.searchUserResult.length}}</span></h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="row merged20">
+                                            <div style="margin-left:156px" class="col-lg-7 col-lg-7 col-sm-7">
+                                                <form  [formGroup]="searchForm">
+                                                   
+                                                    <input class="mb-2" type="text" formControlName="username" (change)="search()" placeholder="Search By Name">
+                                                    <input class="mb-2" type="text" formControlName="country" (change)="search()" placeholder="Search By Country">
+                                                    <input  type="text" formControlName="gender" (change)="search()" placeholder="Search By Gender">
+                                                </form>
+                                            </div>
+                                           
+                                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                                <div class="option-list">
+                                                    <i class="fa fa-ellipsis-v"></i>
+                                                    <ul>
+                                                        <li><a title="" href="#">Show Friends Public</a></li>
+                                                        <li><a title="" href="#">Show Friends Private</a></li>
+                                                        <li><a title="" href="#">Mute Notifications</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- title block -->
+                        <div class="central-meta padding30">
+                            <div class="row">
+                               
+                                <div *ngFor="let user of this.userService.searchUserResult" class="col-lg-3 col-md-6 col-sm-6">
+                                    <div  class="friend-box">
+                                        <figure>
+                                            <img  src="./assets/sar/images/resources/frnd-cover1.jpg" alt="">
+                                        </figure>
+                                        <div class="frnd-meta">
+                                            <img *ngIf="user.imagepath != null" style="     max-height: 53px;
+                                            min-height: 53px;
+                                            max-width: 53px;
+                                            min-width: 53px;" src="./assets/{{user.imagepath}}" alt="">
+                                             <img *ngIf="user.imagepath == null" style="     max-height: 53px;
+                                             min-height: 53px;
+                                             max-width: 53px;
+                                             min-width: 53px;" src="../../../assets/Unknown_person.jpg" alt="">
+                                            <ul class="frnd-info">
+                                                <li><span>Name:</span> <a >{{user.username}}</a> </li>
+                                                <li><span>Gender:</span> {{user.gender}}</li>
+                                                <li><span>Country:</span> {{user.country}}</li>
+                                            </ul>
+                                                                                      
+                                            <div class="more-opotnz">
+                                                <i class="fa fa-ellipsis-h"></i>
+                                                <ul>
+                                                   
+                                                    <li><a  href="http://localhost:4200/user/viewProfile/{{user.userid}}" title="">View Page</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>   
+                            
+                               
+                            </div>
+                           
+                        </div>
+                    </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>	
+</section>
+

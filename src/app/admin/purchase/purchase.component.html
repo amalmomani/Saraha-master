@@ -1,0 +1,152 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+<section>
+    <div class="gap gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row merged20" id="page-contents">
+         <div class="row">
+                    <div class="col-lg-3" style=" position: sticky; top: 0;"  >
+                        <app-asiderbar></app-asiderbar>
+                </div><!-- sidebar widgets -->
+
+                <div class="col-lg-9" style=" padding: 0px">
+                    <section>
+                        <div class="gap2 gray-bg" style="padding: 0;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row merged20" id="page-contents">
+                                         
+                                            <div class="col-lg-12" >
+                                               
+                                                <div class="central-meta padding30">
+                                                    <h4 class="create-post">All Purchase</h4>
+                                                    <div class="col-lg-9" style="max-width:100% ; text-align: center;">
+                                                        <table class="table table-responsive monthly-forecast">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Order</th>
+                                                                    <th>Order Date</th>
+                                                                    <th>Service Name</th>
+                                                                    <th>Service Price</th>
+                                                                    <th>Service Duration</th>
+                                                                    <th>User Name</th>
+                                                                    <!-- <th>Percip</th> -->
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody *ngFor="let object of purchase.OServices">
+                                                                <tr>
+                                                                    <td><span>{{object.purchaseid}}</span></td>
+                                                                    <td>{{object.datefrom | date}}</td>
+                                                                    <!-- <td><i class="wi wi-day-cloudy"></i></td> -->
+                                                                    <td>{{object.featurename}}</td>
+                                                                    <td>{{object.featureprice}}$</td>
+                                                                    <td>{{object.featureduration}} Days</td>
+                                                                    <td>{{object.username}}</td>
+                                                                </tr>
+                                                                <!-- <tr>
+                                                                    <td><span>06, Nov</span></td>
+                                                                    <td>Wed</td>
+                                                                    <td><i class="wi wi-day-showers"></i></td>
+                                                                    <td>Take your umbrella with you it will rain in the next hour</td>
+                                                                    <td>15°</td>
+                                                                    <td>55%</td>
+                                                                    <td>0%</td>
+                                                                </tr> -->
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    
+                                                      
+                                                </div>
+
+
+
+
+
+
+
+<!--  
+                                                    <div class="col-lg-9" style="max-width:100% ;">
+                                                            <h4 class="create-post">All Purchase</h4>
+                                                            <div class="cart-sec">
+                                                                <table class="table table-responsive">
+                                                                    <tbody><tr>
+                                                                        <th>Order Number</th>
+                                                                        <th>Order Date</th>
+                                                                        <th>Service Name</th>
+                                                                        <th>Service Price</th>
+                                                                        <th>Service Duration</th>
+                                                                        <th>User Name</th>
+                                                                    </tr>
+                                                                    <tr *ngFor="let object of purchase.OServices">
+                                                                         <td>
+                                                                           
+                                                                            <div class="cart-meta">
+                                                                                <span>{{object.purchaseid}}</span>
+                                                                            </div>
+                                                                        </td> 
+                                                                        <td>
+                                                                            <span class="Date-from">{{object.datefrom| date:'mediumDate'}}</span>
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="Date-to">{{object.featurename}}</span>
+                                                                        </td >
+                                                                        <td >
+                                                                            <span class="User">{{object.featureprice}}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                        <span class="User">{{object.featureduration}}/month</span>
+                                                                        </td>
+                                                                         <td>
+                                                                        <span class="User">{{object.username}}</span>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                   </tbody></table>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="amount-area">
+                                                                        
+                                                                        <div class="total-area">
+                                                                            <ul>                                                                        
+                                                                                <li class="order-total">
+                                                                                    <span>ORDER TOTAL:</span>
+                                                                                    <i>$1060.00</i>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div>
+
+ -->
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+         </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

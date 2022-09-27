@@ -1,0 +1,492 @@
+
+<app-header></app-header>
+
+<section>
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                  <!-- sidebar widgets -->
+                        <div class="user-profile">
+                         
+                             
+                            <div class="central-meta" style="height:450px ;width:1109px" >
+                                <div id="" class="carousel slide" data-ride="carousel" style="width:100%; height:580px ;">
+                                    <div class="carousel-inner" style="height: 454px;">
+                                      <div class="carousel-item active" >
+                                        <div class="unit-text-caro">
+                                            <img src="../../../assets/{{home.homePage.slider2}}" alt="">
+                                            <div class="text-caro-meta">
+                                                <span>{{home.homePage.description1}}</span>
+                                                <img src="./assets/sar/images/icon-21.png" alt="">
+                                                <h1><a href="#" title="">Contact with  <span>Anyone you want!</span></a></h1>
+                                                <p>
+                                                    {{home.homePage.description2}}
+                                                </p>
+                                            </div>
+                                        </div>     
+                                     </div>
+                                      <div class="carousel-item">
+                                        <div class="unit-text-caro">
+                                            <img src="../../../assets/{{home.homePage.slider1}}" alt="">
+                                            <div class="text-caro-meta">
+                                                <span>{{home.homePage.description1}}</span>
+                                                <img src="./assets/sar/images/icon-21.png" alt="">
+                                                <h1><a href="#" title="">Contact with  <span>Anyone you want!</span></a></h1>
+                                                <p>
+                                                    {{home.homePage.description2}}
+                                                </p>
+                                            </div>
+                                        </div>                                 
+                                         </div>
+                                    
+                                    </div>
+                                  </div>
+                            </div>
+
+                      
+                            
+                            <div class="profile-section">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="profile-author">
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-10 col-md-9">
+                                        <ul class="nav nav-tabs links-tab">
+                                            <li class="nav-item"><a class="" href="#link1" data-toggle="tab">About Section</a></li>
+                                            <li class="nav-item"><a class="" href="#link2" data-toggle="tab">Adds</a></li>
+                                            <li class="nav-item"><a class="" href="#link3" data-toggle="tab">Events</a></li>
+                                            <li class="nav-item"><a class="" href="#link5" data-toggle="tab">Team</a></li>
+                                            <li class="nav-item"><a class="active" href="#link4" data-toggle="tab">Home Page</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>	
+                        </div><!-- user profile banner  -->
+                        <div class="col-lg-12">
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="link1">
+                                    <div class=" merged20">
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                      
+                                                <app-asiderbar></app-asiderbar>
+                                        </div>
+                                        <div class=" col-lg-9">
+                                            <div class="central-meta">
+                                                <div class="don-left whitish high-opacity">
+                                                    <div class="bg-image" style="z-index: 0; background-image: url(./assets/sar/images/resources/facebook-office.jpg)"></div>
+                                                    <div class="our-moto">
+                                                        <p><span>Saraha Time</span> we are proudly non-profit, non-corporate and non-compromised. Thousand of people like to help us stand up for an open web for all. We rely on donation to carry out our mission to keep the web open and free. Will you give today?</p>
+                                                    </div>
+                                                 </div>
+                                                <div class="don-right">
+                                                    <div class="don-form">
+                                                   
+                                                   
+                                                   
+                                                        
+                                                       
+                                                        <form class="c-form personal" [formGroup]="updateAboutUsForm">
+                                                            <span>About Info</span>
+                                                            <div class="row merged10">
+                                                         
+                                                                <div class="col-lg-12">
+                                                                    <input type="text" [(ngModel)]="this.aboutUsService.aboutUs.title" formControlName="title" placeholder="Title">
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <textarea rows="5" [(ngModel)]="this.aboutUsService.aboutUs.subtitle" formControlName="subtitle" placeholder="SubTitle"></textarea>
+                                                                </div>
+                                                                <div class="col-lg-12">
+                                                                    <label class="form-label" for="customFile">About Image</label>
+                                                                    <img height="200" width="200" src="../../../assets/{{this.aboutUsService.aboutUs.imagepath}}">
+                                                                    <input   type="file" #file8 (change)="uploadImageAboutUs(file8.files,1)" />
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <textarea rows="5" [(ngModel)]="this.aboutUsService.aboutUs.feature1" formControlName="feature1" placeholder="Feature1"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <label class="form-label" for="customFile">Feature1 Image</label>
+                                                                        <img height="200" width="200" src="../../../assets/{{this.aboutUsService.aboutUs.feature1_Image}}">
+                                                                        <input   type="file" #file9 (change)="uploadImageAboutUs(file9.files,2)" />
+                                                                        </div>
+
+                                                                    <div class="col-lg-12">
+                                                                        <textarea rows="5" [(ngModel)]="this.aboutUsService.aboutUs.feature2" formControlName="feature2" placeholder="Feature2"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <label class="form-label" for="customFile">Feature2 Image</label>
+                                                                        <img height="200" width="200" src="../../../assets/{{this.aboutUsService.aboutUs.feature2_Image}}">
+                                                                        <input  type="file" #file10 (change)="uploadImageAboutUs(file10.files,3)" />
+                                                                        </div>
+
+                                                                    <div class="col-lg-12">
+                                                                        <textarea rows="5" [(ngModel)]="this.aboutUsService.aboutUs.feature3" formControlName="feature3" placeholder="Feature3"></textarea>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <label class="form-label" for="customFile">Feature3 Image</label>
+                                                                        <img height="200" width="200" src="../../../assets/{{this.aboutUsService.aboutUs.feature3_Image}}">
+                                                                        <input   type="file" #file11 (change)="uploadImageAboutUs(file11.files,4)" />
+                                                                        </div>
+                                                                <div class="col-lg-12">
+                                                                    <button type="submit" (click)="updateAboutUs()" class="main-btn">Save</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                 </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                   	
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="link2">
+                                    <div class="central-meta">
+                                        <div class="create-post">Website Adds</div>
+                                        <a class="main-btn" title="" style="margin-bottom:25px ;"data-toggle="modal" (click)="createthis()" > Add advertisment </a>
+
+                                        <div class="row merged20" >
+
+                                            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let obj of addsService.Adds">
+                                                <div class="tube-post">
+                                                    <figure>
+                                                        <img src="../../../assets/{{obj.imagePath}}" style="height:250px; width: 250px; object-fit: cover;" alt="">
+                                                        <div class="save-post" title={{obj.name}}><i class="fa fa-clock-o"></i></div>
+                                                        <em>Up To:{{obj.addsDate | date}}</em>
+                                                        <div class="more">
+                                                            <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                                <ul>
+                                                                    <li data-toggle="modal" (click)="updateDailog(obj)"><i class="fa fa-pencil-square-o" ></i>Edit</li>
+                                                                    <li (click)="deleteAdd(obj.id)"><i class="fa fa-trash-o"></i>Delete</li>                                                                               
+                                                                  
+                                                                </ul>
+                                                            </div>
+                                                      </div>
+                                                    </figure>
+                                                    <div class="tube-title">
+                                                        <h6><a style="font-size:12px ; color:#fa6342" href="pittube-detail.html" title="">{{obj.name}}</a></h6>
+                                                        <span class="upload-time">{{obj.discount}} % off</span>
+                                                        <span style="float:left ; color: black;" class="upload-time">{{obj.price}}$</span>
+                                                    </div>
+                                                </div>
+                                            </div>                                           
+                                        </div>
+                                    </div>	
+                                </div>
+                               
+
+                                <div class="tab-pane" id="link3">
+                                    <div class="central-meta">
+                                        <div class="create-post">Events</div>
+                                        <a class="main-btn" title="" style="margin-bottom:25px ;"data-toggle="modal" (click)="createv()" > Add Event </a>
+
+                                        <div class="row merged20" >
+
+                                            <div class="col-lg-4 col-md-6 col-sm-6"*ngFor="let obj of eventService.event" style="margin-bottom:30px ;">
+                                                <div class="more">
+                                                    <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                        <ul>
+                                                            <li data-toggle="modal" (click)="updateEventDailog(obj)"><i class="fa fa-pencil-square-o" ></i>Edit</li>
+                                                            <li (click)="deleteEvent(obj.id)"><i class="fa fa-trash-o"></i>Delete</li>                                                                               
+                                                          
+                                                        </ul>
+                                                    </div>
+                                              </div><div class="price-box">
+                                                    <span class="bg-blue">{{obj.header}}</span>
+                                                    <div class="pricings">
+                                                        <h2>{{obj.type}}</h2>
+                                                        <h1>$ {{obj.price}} <span>Per Month</span></h1>
+                                                        <p>
+                                                            {{obj.description}}
+                                                        </p>
+                                                        <ul class="price-features">
+                                                            <li><i class="ti-check"></i>{{obj.text1}} </li>
+                                                            <li><i class="ti-check"></i> {{obj.text2}}</li>
+                                                            <li><i class="ti-check"></i>{{obj.text3}}</li>
+                                                            
+                                                        </ul>
+                                                        <a class="main-btn" title="" data-ripple="">{{obj.eventDate |date}} at {{obj.location}}</a>
+                                                    </div>	
+                                                </div>
+                                            </div>                       
+                                        </div>
+                                    </div>	
+                                </div>
+
+
+
+                                <div class="tab-pane" id="link5">
+                                    <div class="">
+
+                                        <div class="row merged20" >
+                                            <div class="col-lg-3">
+                      
+                                                <app-asiderbar></app-asiderbar>
+                                        </div>
+                                        <div class=" col-lg-9">
+                                            <div class="">
+                                                <div class="forum-form">
+                                                    <div class="central-meta">
+                                                        <form  class="c-form" [formGroup]="updateHomeForm">
+                                                       
+                                                            <div>
+                                                                <label>Member1 Image</label>
+                                                                <img width="100" height="300" class="ml-5 mb-3" src="../../../assets/{{this.homeService.home.member1_Image}}">
+                                                                <input type="file" #file4 formControlName="member1_Image" (change)="uploadImage(file4.files,4)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member1 Name</label>
+                                                                <input type="text" formControlName="member1_Name" [(ngModel)]="this.homeService.home.member1_Name" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member2 Image</label>
+                                                                <img width="100" height="300" class="ml-5 mb-3" src="../../../assets/{{this.homeService.home.member2_Image}}">
+                                                                <input type="file" #file5 formControlName="member2_Image" (change)="uploadImage(file5.files,5)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member2 Name</label>
+                                                                <input type="text" formControlName="member2_Name" [(ngModel)]="this.homeService.home.member2_Name" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member3 Image</label>
+                                                                <img width="100" height="300" class="ml-5 mb-3" src="../../../assets/{{this.homeService.home.member3_Image}}">
+                                                                <input type="file" #file6 formControlName="member3_Image" (change)="uploadImage(file6.files,6)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member3 Name</label>
+                                                                <input type="text" formControlName="member3_Name" [(ngModel)]="this.homeService.home.member3_Name" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member4 Image</label>
+                                                                <img width="100" height="300" class="ml-5 mb-3" src="../../../assets/{{this.homeService.home.member4_Image}}">
+                                                                <input type="file" #file7 formControlName="member4_Image" (change)="uploadImage(file7.files,7)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Member4 Name</label>
+                                                                <input type="text" formControlName="member4_Name" [(ngModel)]="this.homeService.home.member4_Name" placeholder="">
+                                                            </div>
+                                                            <button (click)="updateHome()"> Update </button> 
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>	
+                                </div>
+
+                                <div class="tab-pane  active" id="link4">
+                                    <div class="">
+                                    
+                                        <div class="row merged20">
+                                            <div class="col-lg-3">
+                      
+                                                <app-asiderbar></app-asiderbar>
+                                        </div>
+                                        <div class=" col-lg-9">
+                                            <div class="">
+                                                <div class="forum-form">
+                                                    <div class="central-meta">
+                                                        <form  class="c-form" [formGroup]="updateHomeForm">
+                                                            <div>
+                                                                <label>Logo Image</label>
+                                                                <img width="150" height="80" class="ml-5" src="../../../assets/{{this.homeService.home.logo}}">
+                                                             <br>   
+                                                             <input type="file" #file1 formControlName="logo" (change)="uploadImage(file1.files,1)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Email </label>
+                                                                <input type="email" [(ngModel)]="this.homeService.home.email" formControlName="email" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Phone Number</label>
+                                                                <input type="string" formControlName="phoneNumber"  [(ngModel)]="this.homeService.home.phoneNumber" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Address</label>
+                                                                <input type="text" formControlName="address"  [(ngModel)]="this.homeService.home.address" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Slider1 Image</label>
+                                                                <img width="600" height="200" class="ml-5" src="../../../assets/{{this.homeService.home.slider1}}">
+                                                                <input type="file" #file2 formControlName="slider1" (change)="uploadImage(file2.files,2)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Description 1</label>
+                                                                <textarea rows="3" formControlName="description1"  [(ngModel)]="this.homeService.home.description1" placeholder=""></textarea>
+                                                            </div>
+                                                            <div>
+                                                                <label>Slider2 Image</label>
+                                                                <img width="600" height="200" class="ml-5" src="../../../assets/{{this.homeService.home.slider2}}">
+                                                                <input type="file" #file3 formControlName="slider2" (change)="uploadImage(file3.files,3)" placeholder="">
+                                                            </div>
+                                                            <div>
+                                                                <label>Description 2</label>
+                                                                <textarea rows="3" formControlName="description2" [(ngModel)]="this.homeService.home.description2" placeholder=""></textarea>
+                                                            </div>
+                                                            
+                                                          
+                                                           
+                                                            <button (click)="updateHome()"> Update </button> 
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                            
+                            </div>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>	
+</section>
+<ng-template class="modal fade" #callupdateDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Update Add </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="width:80% ;margin: auto;">
+            <form  class="" [formGroup]="updateForm"  >
+                <div style="width:80%;margin:auto;padding:auto">
+             
+                  <input style="margin: 3px;margin-bottom: 12px;min-width: 298px; max-width: 94px;" placeholder="name" type="text" matInput formControlName="name"  [(ngModel)]="p_data.name" >
+                  <input placeholder="Price" type="number" matInput formControlName="price" [(ngModel)]="p_data.price">
+                  <input style="margin-top:15px ;" placeholder="Duration" type="number" matInput formControlName="discount" [(ngModel)]="p_data.discount">
+                  <div class="row">
+                  <input style="margin-top:15px ; margin-left: 10px;" placeholder="Up to date" type="date" matInput formControlName="addsDate" [(ngModel)]="p_data.addsDate" >
+
+                  </div>
+                
+                  <div class="row">
+                  <label> Image </label>
+                  <input style="margin-left:15px" type="file" #file (change)="uploadAddImage(file.files)"  >
+                 </div>
+                  <button style="    margin-top: 19px;
+                  margin-right: -3px;" (click)="updateAdd()">Update</button>
+                 </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+</ng-template>
+
+<ng-template class="modal fade" #callCreateDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add new advertisment</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="width:80% ;margin: auto;">
+            <form  class="" [formGroup]="createForm"  >
+                <div style="width:80%;margin:auto;padding:auto">
+             
+                  <input style="    margin: 3px;margin-bottom: 12px;min-width: 298px; max-width: 94px;" placeholder="name" type="text" matInput formControlName="name">
+                  <input placeholder="Price" type="number" matInput formControlName="price" >
+                  <input style="margin-top:15px ;" placeholder="discount" type="number" matInput formControlName="discount" >
+                  <div class="row">
+                  <input style="margin-top:15px ;    margin-left: 10px;" placeholder="Up to date" type="date" matInput formControlName="addsDate"  >
+
+                  </div>
+                 
+                  <div class="row">
+                  <input style="margin-left:15px" type="file" #file  (change)="uploadAddImage(file.files)" formControlName="imagePath" >
+                 </div>
+                  <button style="    margin-top: 19px;
+                  margin-right: -3px;" (click)="createAdd()">Create</button>
+                 </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+        </div>
+    </div>
+</div>
+</ng-template>
+
+
+
+
+<ng-template class="modal fade" #callupdateEventDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Update Event </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form  class="" [formGroup]="updateEventForm"  >
+                <div >
+             
+                  <input  placeholder="type" type="text" matInput formControlName="type"  [(ngModel)]="e_data.type" >
+                  <input style="margin-top:15px ;" placeholder="Price" type="number" matInput formControlName="price" [(ngModel)]="e_data.price">
+                  <input style="margin-top:15px ;" placeholder="header" type="text" matInput formControlName="header" [(ngModel)]="e_data.header">
+                  <input style="margin-top:15px ;" placeholder="description" type="text" matInput formControlName="description" [(ngModel)]="e_data.description">
+                    <input style="margin-top:15px ;" placeholder="Up to date" type="date" matInput formControlName="eventDate" [(ngModel)]="e_data.eventDate" >
+                    <input style="margin-top:15px ;" placeholder="location" type="text" matInput formControlName="location" [(ngModel)]="e_data.location">
+                    <input style="margin-top:15px ;" placeholder="text1" type="text" matInput formControlName="text1" [(ngModel)]="e_data.text1">
+                    <input style="margin-top:15px ;" placeholder="text2" type="text" matInput formControlName="text2" [(ngModel)]="e_data.text2">
+                    <input style="margin-top:15px ;" placeholder="text3" type="text" matInput formControlName="text3" [(ngModel)]="e_data.text3">
+
+                
+                  <button  (click)="updateEvent()">Update</button>
+                 </div>
+                </form>
+            </div>
+           
+      </div>
+</ng-template>
+
+
+<ng-template class="modal fade" #callCreateEventDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add Event </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form  class="" [formGroup]="createEventForm"  >
+                <div >
+             
+                  <input  placeholder="type" type="text" matInput formControlName="type" >
+                  <input style="margin-top:15px ;" placeholder="Price" type="number" matInput formControlName="price">
+                  <input style="margin-top:15px ;" placeholder="header" type="text" matInput formControlName="header">
+                  <input style="margin-top:15px ;" placeholder="description" type="text" matInput formControlName="description" >
+                    <input style="margin-top:15px ;" placeholder="Up to date" type="date" matInput formControlName="eventDate"  >
+                    <input style="margin-top:15px ;" placeholder="location" type="text" matInput formControlName="location">
+                    <input style="margin-top:15px ;" placeholder="text1" type="text" matInput formControlName="text1" >
+                    <input style="margin-top:15px ;" placeholder="text2" type="text" matInput formControlName="text2" >
+                    <input style="margin-top:15px ;" placeholder="text3" type="text" matInput formControlName="text3">
+
+                
+                  <button  (click)="createEvent()">Add</button>
+                 </div>
+                </form>
+            </div>
+           
+      </div>
+</ng-template>
+
+
+

@@ -1,0 +1,444 @@
+<div class="wavy-wraper">
+	<div class="wavy">
+	  <span style="--i:1;">S</span>
+	  <span style="--i:2;">A</span>
+	  <span style="--i:3;">R</span>
+	  <span style="--i:4;">A</span>
+	  <span style="--i:5;">H</span>
+	  <span style="--i:6;">A</span>
+	  <span style="--i:7;">.</span>
+	  <span style="--i:8;">.</span>
+	  <span style="--i:9;">.</span>
+	</div>
+</div>
+<div class="theme-layout" >
+
+	<div class="navbar-light topbar transperent " style="position: fixed;top: 0;width: 100%; background-color:#34465d
+	;opacity: 0.8;">
+		<div class="logo">
+			<a title="" href="newsfeed.html"><img src="../../../assets/{{home.homePage.logo}}"  height="90" width="120" alt=""></a>
+		</div>
+		<nav>
+			<ul class="nav-list">
+				<li><a class="" href="#Home" title=""><i class="fa fa-home"></i> Home Pages</a>
+					
+				</li>
+				<li><a class="" href="#about"  title=""><i class="fa fa-thumbs-o-up"></i> About us</a>
+					
+				</li>
+				<li><a class="" href="#service"  title=""><i class="fa fa-television"></i> Services</a>
+					
+				</li>
+				
+				<li><a class="" href="#team"  title=""><i class="fa fa-user-circle"></i> Our team </a>
+					
+				</li>
+				<li><a class="" href="#Testimonial" title=""><i class="fa fa-comments-o"></i>Testimonial</a>
+					
+				</li>
+				<li><a class="" href="#contact" title=""><i class="fa fa-phone"></i>Contact Us</a>
+					
+				</li>
+				<li><a class="" [routerLink]="['/authentication/Login']" title=""><i class="fa fa-sign-in"></i> Login</a>               
+				</li>   
+				
+			</ul>
+			<a class="main-btn" title="" [routerLink]="['/authentication/Register']" data-ripple="">Register Now</a>
+		</nav><!-- nav menu -->
+	</div><!-- topbar nav -->
+	
+
+<section style="padding: 0px" id="Home">
+	<div class="gap no-gap overlap22">
+		<div class="text-caro">
+			<div class="unit-text-caro">
+				<img src="../../../assets/617798a7-bd70-45d6-8f79-09055eb6994e_slider1.jpg" alt="">
+				<div class="text-caro-meta">
+					<span style="font-size:30px ;font-weight:bold"> {{home.homePage.description1}}</span>
+					<!-- <img src="../../../assets/{{home.homePage.slider1}}" alt=""> -->
+					<h1 ><a  title="">Time <span>To Be Honest!</span></a></h1>
+					<p>
+						{{home.homePage.description2}}
+					</p>
+				</div>
+			</div><div class="unit-text-caro">
+				<img src="../../../assets/726c891c-eb4a-4394-987e-c8d75ae5fae5_slider2.jpg" alt="">
+				<div class="text-caro-meta">
+					<span style="font-size:30px ;font-weight:bold"> {{home.homePage.description1}}</span>
+					<!-- <img src="../../../assets/{{home.homePage.slider1}}" alt=""> -->
+					<h1 ><a title="">Time <span>To Be Honest!</span></a></h1>
+					<p>
+						{{home.homePage.description2}}
+					</p>
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>
+</section><!-- banner carousel on top -->
+
+<section id="about">
+	<div class="gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="welcome-area">
+						
+						<h2 style="font-size:xx-large ;"><span style="color: #fa6342;font-weight: 550;">{{this.home.aboutUs.title}}</span><br></h2>
+						<p>
+							{{this.home.aboutUs.subtitle}}
+				 	</p>
+					</div>
+					
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="welcome-avatar">
+						<img src="../../../assets/{{this.home.aboutUs.imagepath}}"alt="">
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!-- welcome section -->
+
+<section id="service">
+	<div class="gap mb-5 ml-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="sec-heading style9 text-center">
+						<span><i class="fa fa-trophy"></i> For the global growth</span>
+						<h2>All in one <span>Plateform</span></h2>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="serv-box">
+						<i class="fa fa-user-secret" aria-hidden="true"></i>														<h4>Anonymous Messaging</h4>
+						<p>
+							You can send message for anyone as anonymous							</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="serv-box">
+						<i class="fa fa-file-text-o" aria-hidden="true"></i>
+						<h4>Share Post</h4>
+						<p>You can share post about anything that you wanted</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6">
+					<div class="serv-box">
+						<i class="fa fa-reply" aria-hidden="true"></i>
+						<h4>Reply Message</h4>
+						<p>
+							You can reply for any message that you are receiving</p>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</section><!-- services sec -->
+
+<section>
+	<div class="gap">
+		<div class="container">
+			<div class="sec-heading style9 text-center">
+				<h2>Our <span>Services</span></h2>
+			</div>
+			<div class="row" id="page-contents">
+				
+				<div class="col-lg-12">	
+					<div class="row">	
+					
+						<div class="cjewl col-lg-3 col-sm-6" *ngFor="let obj of home.feature">
+							<div class="portfolio-box" >
+								<img src="../../../assets/{{obj.imagePath}}" style="object-fit:contain ;height:200px; width:200px;text-align: center;" alt="">
+								<div class="overlinks">
+									<h4><a title="">{{obj.featureName}}</a></h4>
+									<ul class="cate">
+										<li><a  title="">{{obj.featurePrice}}$ for /</a></li>
+										<li><a  title="">{{obj.featureDuration}}month</a></li>
+									</ul>
+								</div>
+							</div>
+					
+						</div>
+					</div>	
+				</div>
+			</div>	
+		</div>
+	</div>
+</section><!-- our portfolio -->
+
+
+<section id="Testimonial">
+	<div class="gap">
+		<div class="container">
+			<div class="sec-heading style9 text-center">
+				<h2>Clients <span>Testimonial</span></h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3">
+					
+					<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8Ir2Ay43n2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+				</div><!-- bootstrap accordion -->
+				<div class="col-lg-6 col-md-6">
+
+					<div class="testi-caro">
+						<div class="testi-silver">
+							<span><img alt="" src="../../../assets/{{testimonial.t.imagePath}}" style="height: 200px;width: 180px; object-fit: cover;"></span>
+							<div class="testi-meta">
+								<p>
+									{{testimonial.t.content}}
+								</p>
+								<span><i class="fa fa-thumbs-o-up"></i>{{testimonial.t.user}}</span>
+								<!-- <i>designer</i> -->
+							</div>
+						</div>
+						<div class="testi-silver">
+							<span><img alt="" src="../../../assets/{{testimonial.t1.imagePath}}"style="height: 200px;width: 180px; object-fit: cover;"></span>
+							<div class="testi-meta">
+								<p>
+									{{testimonial.t1.content}}
+								</p>
+								<span><i class="fa fa-thumbs-o-up"></i>{{testimonial.t1.user}}</span>
+								<!-- <i>designer</i> -->
+							</div>
+						</div>
+						<div class="testi-silver">
+							<span><img alt="" src="../../../assets/{{testimonial.t2.imagePath}}"style="height: 200px;width: 180px; object-fit: cover;"></span>
+							<div class="testi-meta">
+								<p>
+									{{testimonial.t2.content}}
+								</p>
+								<span><i class="fa fa-thumbs-o-up"></i>{{testimonial.t2.user}}</span>
+								<!-- <i>designer</i> -->
+							</div>
+						</div>
+						<div class="testi-silver">
+							<span><img alt="" src="../../../assets/{{testimonial.t3.imagePath}}"style="height: 200px;width: 180px; object-fit: cover;"></span>
+							<div class="testi-meta">
+								<p>
+									{{testimonial.t3.content}}
+								</p>
+								<span><i class="fa fa-thumbs-o-up"></i>{{testimonial.t3.user}}</span>
+								<!-- <i>designer</i> -->
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+
+				</div>
+
+
+
+			
+			</div>
+		</div>
+	</div>
+</section><!-- tab & testimonial carousel -->
+
+<section id="team">
+	<div class="gap">
+		<div class="container">
+			
+					<div class="sec-heading style9 text-center">
+						<h2>Our <span>Team</span></h2>
+					</div>
+					<div class="row" style="text-align:center ;">
+						<div class="team-member  col-lg-3">
+							<img src="../../../assets/{{home.homePage.member1_Image}}"  style="object-fit:contain ; height:300px; width:250px" alt="">
+							<div class="team-info over-top">
+								<h2><a title=""> {{home.homePage.member1_Name}}</a></h2>
+								<span>Developer</span>
+							</div>
+						</div>
+						<div class="team-member col-lg-3"  >
+							<img src="../../../assets/{{home.homePage.member3_Image}}"style="object-fit:contain ; height:300px; width:250px" alt="">
+							<div class="team-info over-top">
+								<h2><a href="#" title="">{{home.homePage.member3_Name}}</a></h2>
+								<span>Developer</span>
+							</div>
+						</div>
+						<div class="team-member col-lg-3" >
+							<img src="../../../assets/{{home.homePage.member4_Image}}"  style="object-fit:contain ; height:300px; width:250px" alt="">
+							<div class="team-info over-top">
+								<h2><a href="#" title="">{{home.homePage.member4_Name}}</a></h2>
+								<span>Developer</span>
+							</div>
+						</div>
+						<div class="team-member col-lg-3">
+							<img src="../../../assets/{{home.homePage.member2_Image}}" style="object-fit:contain ; height:300px; width:250px"alt="">
+							<div class="team-info over-top">
+								<h2><a href="#" title="">{{home.homePage.member2_Name}}</a></h2>
+								<span>Developer</span>
+							</div>
+						</div>
+						
+					</div>
+			
+		</div>
+	</div>
+</section><!-- our team -->
+
+<section>
+	<div class="gap">
+		<div class="container">
+			<div class="row">
+				<div class="offset-lg-1 col-lg-10">
+					<div class="sec-heading style9 text-center">
+						<h2>Event <span>Plans</span></h2>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6"*ngFor="let obj of eventService.event.slice(this.eventService.event.length - 4,this.eventService.event.length-1)">
+					<div class="price-box">
+						<span class="bg-blue">{{obj.header}}</span>
+						<div class="pricings">
+							<h2>{{obj.type}}</h2>
+							<h1>$ {{obj.price}} <span>Per Month</span></h1>
+							<p>
+								{{obj.description}}
+							</p>
+							<ul class="price-features">
+								<li><i class="ti-check"></i>{{obj.text1}} </li>
+								<li><i class="ti-check"></i> {{obj.text2}}</li>
+								<li><i class="ti-check"></i>{{obj.text3}}</li>
+								
+							</ul>
+							<a class="main-btn" title="" data-ripple="">{{obj.eventDate |date}} at {{obj.location}}</a>
+						</div>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section><!-- price plans -->
+	
+<section>
+	<div class="gap2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="sponsors">
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-1.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-2.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-3.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-4.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-5.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-1.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-2.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-3.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-4.png" alt=""></a></li>
+						<li><a href="#" title=""><img src="./assets/sar/images/resources/sponsor-5.png" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!-- sponsors carousel -->
+
+
+	
+<section class="mt-5" id="contact">
+	<div class="news-letter-bx">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6">
+				<div class="leter-meta">
+					<h2>Contact Us</h2>
+					<p>
+						Be free to write what do you want...
+					</p>
+					<i><img src="./assets/sar/images/envelop.png" alt=""></i>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<!-- <div class="leter-input"> -->
+					<form [formGroup]="createMessage" >
+<div class="col-lg-12">
+						<mat-form-field>
+							<input type="text" matInput formControlName="username"type="text" placeholder="Your Name..." >
+							<mat-error *ngIf="createMessage.controls['username'].hasError('required')">
+							 username Name is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="col-lg-12">
+
+						<mat-form-field>
+							<input type="text" matInput formControlName="email"type="text" placeholder="Your Email..." >
+							<mat-error *ngIf="createMessage.controls['email'].hasError('required')">
+							 Email is <strong>required</strong>
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="col-lg-12">
+
+						<mat-form-field>
+							<input type="text" matInput formControlName="message"  type="text" placeholder="Message..." >
+							<mat-error *ngIf="createMessage.controls['message'].hasError('required')">
+							 Message cannot be empty!
+							</mat-error>
+						</mat-form-field>
+					</div>
+					<div class="row">
+
+						<button type="submit" [disabled]="!createMessage.valid" class="main-btn col-7" mat-button (click)="CreateMessage()">Create</button>
+
+					
+					</div>
+					 </form>
+					
+
+
+
+
+
+
+
+
+					
+				</div>
+			</div>
+		</div>
+		</div>	
+	<!-- </div> -->
+</section><!-- subscribe sec -->
+
+
+
+<footer class="style2 dark">
+	<div class="logo">
+		<img src="../../../assets/{{home.homePage.logo}}" alt="">
+	</div>
+	<div class="share-article">
+		<a data-ripple="" href="#" title="" class="facebook"><i class="fa fa-facebook"></i></a>
+		<a data-ripple="" href="#" title="" class="pinterest"><i class="fa fa-pinterest-p"></i></a>
+		<a data-ripple="" href="#" title="" class="instagram"><i class="fa fa-instagram"></i></a>
+		<a data-ripple="" href="#" title="" class="twitter"><i class="fa fa-twitter"></i></a>
+		<a data-ripple="" href="#" title="" class="google"><i class="fa fa-google"></i></a>
+	</div>
+	<div class="nav-links">
+		<a href="#" title="">Home</a>
+		<a href="#" title="">about</a>
+		<a href="#" title="">friends</a>
+		<a href="#" title="">clients</a>
+		<a href="#" title="">news</a>
+		<a href="#" title="">contact</a>
+	</div>
+	<div class="copyright-content">
+		<span class="">Copyright © 2020 Saraha Time. All Rights Reserved.</span>
+		<sub>Designed by <a href="#" title="">Dewwater</a></sub>
+	</div>
+</footer><!-- footer -->
+
+</div>	

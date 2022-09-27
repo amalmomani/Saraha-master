@@ -1,0 +1,94 @@
+
+
+<div style="height: 750; margin-bottom:50px ; background-color: #fa6342e8; position: sticky; top: 0;border-radius: 4px;">
+  <div class="friend-box" style="height:600px ;margin-top: 50px;">
+    <div class="frnd-meta">
+      <!-- <img alt="" style="object-fit:contain ;  width:70px" src="./assets/{{this.userService.user.imagepath}}"> -->
+      <img alt="" style="object-fit:cover ;  width:100px; height: 100px;" src="./assets/{{this.userService.user.imagepath}}">
+      <div class="frnd-name">
+        <a title="" >{{this.userService.user.username}}</a>
+        <span>{{this.userService.user.country}}</span>
+      </div>
+      <a class="main-btn2" style="margin-left: 110px;margin-top: 26px;" [routerLink]="['/admin/MyProfile']" title="">Edit Profile</a>
+    </div>
+    <ul class="menu-list">
+      <li><a [routerLink]="['/admin/HomePage']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-home"></i>Home</a></li>
+      <li><a [routerLink]="['/admin/Users']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa fa-user-o"></i>Users</a></li>
+      <li><a [routerLink]="['/admin/Report']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-user-times"></i>Reports</a></li>
+      <li><a [routerLink]="['/admin/Service']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-ticket"></i>Services</a></li>
+      <li><a [routerLink]="['/admin/Purchase']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-shopping-cart"></i>Orders</a></li>
+      <li><a [routerLink]="['/admin/Message']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-envelope-o"></i>Messages</a></li>
+      <li><a [routerLink]="['/admin/ManageHome']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-columns"></i>Manage Pages</a></li>
+      <li><a [routerLink]="['/admin/Testimonials']" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-smile-o"></i>Manage Testimonials</a></li>
+
+      <li><a href="http://localhost:4200/" title="" data-ripple=""><i style="padding:10px ;" class="fa fa-sign-out"></i>Log Out</a></li>
+
+    </ul>
+  </div>
+  </div>
+
+
+<!-- <div class="side-panel">
+<h4 class="panel-title">General Setting</h4>
+<form method="post">
+<div class="setting-row">
+<span>use night mode</span>
+<input type="checkbox" id="nightmode1"/> 
+<label for="nightmode1"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Notifications</span>
+<input type="checkbox" id="switch22" /> 
+<label for="switch22"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Notification sound</span>
+<input type="checkbox" id="switch33" /> 
+<label for="switch33"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>My profile</span>
+<input type="checkbox" id="switch44" /> 
+<label for="switch44"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Show profile</span>
+<input type="checkbox" id="switch55" /> 
+<label for="switch55"    data-off-label="OFF"></label>
+</div>
+</form>
+<h4 class="panel-title">Account Setting</h4>
+<form method="post">
+<div class="setting-row">
+<span>Sub users</span>
+<input type="checkbox" id="switch66" /> 
+<label for="switch66"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>personal account</span>
+<input type="checkbox" id="switch77" /> 
+<label for="switch77"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Business account</span>
+<input type="checkbox" id="switch88" /> 
+<label for="switch88"    data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Show me online</span>
+<input type="checkbox" id="switch99" /> 
+<label for="switch99"  data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Delete history</span>
+<input type="checkbox" id="switch101" /> 
+<label for="switch101" data-off-label="OFF"></label>
+</div>
+<div class="setting-row">
+<span>Expose author name</span>
+<input type="checkbox" id="switch111" /> 
+<label for="switch111" data-off-label="OFF"></label>
+</div>
+</form>
+</div> side panel -->		
+

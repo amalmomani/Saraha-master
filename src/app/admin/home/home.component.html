@@ -1,0 +1,335 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+<section>
+    <div class="gap gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row merged20" id="page-contents">
+         <div class="row">
+                    <div class="col-lg-3" style=" position: sticky; top: 0;"  >
+                        <app-asiderbar></app-asiderbar>
+                </div><!-- sidebar widgets -->
+
+                <div class="col-lg-9">
+                    <div class="row">
+
+               <div class="col-lg-12" >
+                   <!-- / <div class="info-section"> -->
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="stat-box" style="padding:25px 50px 15px">
+                                    <i class="fa fa-users"></i>
+                                    <div class="anlytc-meta">
+                                        <h4>Registerd</h4>
+
+                                        <p>{{userservice.totalCount}}</p>
+                                        <span>Total Users </span> 
+                                    </div>
+                                    <div class="progress" style="height:6px">
+                                        <div class="progress-bar" style="width:70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="stat-box" style="padding:25px 50px 15px">
+                                    <i class="fa fa-sign-in"></i>
+                                    <div class="anlytc-meta">
+                                        <h4>Contact</h4>
+                                        <p>{{contactUs.Messages.length}}</p>
+                                        <span>New Messages </span> 
+                                    </div>
+                                    <div class="progress" style="height:6px">
+                                        <div class="progress-bar bg-info" style="width:50%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="stat-box"style="padding:25px 50px 15px">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="anlytc-meta">
+                                        <h4 style="font-size:13px ;">Between Users</h4>
+                                        <p>{{this.message.allMessages.length}}</p>
+                                        <span>user's Messages</span> 
+                                    </div>
+                                    <div class="progress" style="height:6px">
+                                        <div class="progress-bar bg-valvot" style="width:60%"></div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <!-- </div>  -->
+                <div class="col-lg-4">
+                    <div class="central-meta postbox">
+                        <span class="create-post">Number Of Services</span>
+                        <div class="new-postbox">
+                          
+                            <div class="newpst-input">
+                                {{featureService.feature.length}} Service
+                            </div>     
+                       
+                        </div>	
+                    </div><!-- add post new box -->
+                </div>
+                <div class="col-lg-4" >
+                    <div class="central-meta postbox">
+                        <span class="create-post">Number of orders</span>
+                        <div class="new-postbox">
+                          
+                            <div class="newpst-input">
+                               {{order.ordercount}} Orders
+                            </div>        
+                       
+                        </div>	
+
+                    </div><!-- add post new box -->
+                </div>
+                
+                <div class="col-lg-4" >
+                    <div class="central-meta postbox">
+                        <span class="create-post">Number of posts</span>
+                        <div class="new-postbox">
+                          
+                            <div class="newpst-input">
+                              {{post.postcount}} Post
+                            </div>     
+                       
+                        </div>	
+
+                    </div><!-- add post new box -->
+                </div>
+
+
+
+                    <div class="col-lg-8">
+                        <div class="central-meta">
+                            <span class="create-post"> Lastest Reported users <a [routerLink]="['/admin/Report']" title="">See All</a></span>
+                            <ul class="suggested-frnd-caro owl-carousel owl-theme owl-loaded owl-responsive-600">
+                                <div class="owl-item cloned" style="width: 154.5px; margin-right: 10px;"*ngFor="let obj of report.reports.slice(this.report.reports.length - 4,this.report.reports.length-1)">
+                                 <li style="   min-height: 231px;
+                                 max-height: 231px;"> 
+                                         <img src="../../../assets/{{obj.imageName}}" style="height: 170px;width: 150px; object-fit: cover;" alt="">
+                                         <div class="sugtd-frnd-meta">
+                                             <a href="#" title="">{{obj.username}}</a>
+                                             <!-- <span>{{obj.count}} report</span> -->
+                                             <!-- <ul class="add-remove-frnd">
+                                                 <li class="add-tofrndlist"><a href="#" title="Details"><i class="ti ti-alert"></i></a></li>
+                                                 <li class="remove-frnd"><a href="#" title="Block"><i class="fa fa-user-times"></i></a></li>
+                                             </ul> -->
+                                         </div>
+                                     </li>
+                                 </div>
+                                    
+                                    
+             
+                                   
+                                 </ul>
+                        </div>
+
+                    </div>
+                   
+                    <div class="col-lg-4">
+                        <div class="widget" style="height:30px ;">
+                            <div class="weather-widget low-opacity bluesh" style="height:332px ;">
+                                <div class="bg-image" style="background-image: url(../assets/sar/images/resources/weather.jpg)"></div>
+                                <span class="refresh-content"><i class="fa fa-refresh"></i></span>
+                                <div class="weather-week">
+                                    <div class="icon sun-shower">
+                                      <div class=""></div>
+                                      <div class="sun">
+                                        <div class="rays"></div>
+                                      </div>
+                                      <div class=""></div>
+                                    </div>
+                                </div>
+                                <div class="weather-infos">
+                                    <span class="weather-tem">{{this.userservice.weather.temp}}</span>
+                                    <h3>{{this.userservice.weather.description}}<i>{{this.userservice.weather.city}} , {{this.userservice.weather.country}}</i></h3>
+                                    <div class="weather-date skyblue-bg">
+                                        <span>{{this.mnth}}<strong>{{this.day1}}</strong></span>
+                                    </div>
+                                </div>
+                         
+                                
+                            </div><!-- Weather Widget -->
+                        </div>
+                    </div>
+    
+                    <aside class=" col-lg-12 sidebar static right" style="margin-bottom:30px ;">   
+                        <div class="row">
+                         <div class="col-lg-12"  >
+                        <!-- company Highlights -->
+                     </div>
+                 <div class="col-lg-12" >
+                     <!-- <div class="col-lg-12"> -->
+                            <div class="widget central-meta" style="text-align:start; color:#515365;">
+
+                        <canvas id="myChart"  #mychart style="margin-left: 12%;"></canvas>
+                            </div>
+                 </div>
+                        </div>
+                    </aside>
+                <aside class=" col-lg-12 sidebar static right">   
+                        <div class="row">
+                         <div class="col-lg-12"  >
+                        <!-- company Highlights -->
+                     </div>
+                 <div class="col-lg-12" >
+                     <!-- <div class="col-lg-12"> -->
+                            <div class="widget central-meta" style="text-align:start; color:#515365;">
+                            <span class="create-post"style="text-align:start; color:#515365; font-size:15px;" >Active users<a title=""[routerLink]="['/admin/actives']">See All</a></span>
+                         <!-- <div class="widget"style=" width: 824px; margin-left: -1px;" > -->
+                             <ul class="most-actie-pep" >
+                                <!-- <div  *ngFor="let user of userservice.users"> -->
+                                <!-- <li *ngIf="user.Is_Active == 1"> -->
+                                <li *ngFor="let active of active.Activeusers.slice(this.active.Activeusers.length - 14,this.active.Activeusers.length-1)">
+                                     <a href="#" title="Sandy" class="user-thmb">
+                                        <a [routerLink]="['/user/viewProfile/',active.userid]"> <img  title="{{active.username}}" *ngIf="active.imagepath == null"
+                                            src="../../../../assets/Unknown_person.jpg" style="object-fit:cover ; width:40px; height: 40px; border-radius: 100%;"></a> 
+                                       <a [routerLink]="['/user/viewProfile/',active.userid]"> <img  title="{{active.username}}" *ngIf="active.imagepath != null" 
+                                          src="../../../../assets/{{active.imagepath}} " style="object-fit:cover ; width:40px;height: 40px;  border-radius: 100%;"></a>
+                                         <span class="status f-online"></span>
+                                     </a>
+                                 </li>
+                                <!-- </div>  -->
+                            
+                             </ul>
+                         <!-- </div> -->
+                     <!-- </div> -->
+                     </div>
+                 
+                    
+
+                   
+                    </div>
+                     </div>
+                     </aside>
+                                 
+
+
+<div class="col-lg-12" style="margin-top:25px">
+
+    <div class="central-meta">
+        <div class="forum-list">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th style="margin-right:10px ;" scope="col">Recent Messages</th>
+               
+
+
+
+
+                       
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                  
+                    <div *ngFor="let message  of contactUs.Messages"  >              
+                
+                        <tr>
+                        <td>
+                            <i class="fa fa-comments"></i> 
+                            <a  style="font-size:meduim ;" href="forums-category.html" title="">{{message.username}} <br><a  href="mailto:someone@yoursite.com" style="color:#fa6342e8 ;font-size:small;margin-left:18px ;">{{message.email}}</a></a>
+                            
+                        </td>  
+                        <td>
+                            <p style="min-width: 330px;"> {{message.message}}</p>
+                        </td>  
+                           
+                    </tr> 
+                </div>  
+                </tbody>
+            </table>
+           
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="central-meta" style=" width: 825px;margin-left: 15px;">
+    <span class="create-post">Orders<a title=""[routerLink]="['/admin/Report']">Full Month</a></span>
+    <table class="table table-responsive monthly-forecast" style="padding-left:50px">
+        <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>Order Date</th>
+                <th>Service Name</th>
+                <th>Service Price</th>
+                <th>Service Duration</th>
+                <th>User Name</th>
+                <!-- <th>Percip</th> -->
+            </tr>
+        </thead>
+        <tbody *ngFor="let object of order.OServices">
+            <tr style="text-align:center ;">
+                <td><span>{{object.purchaseid}}</span></td>
+                <td>{{object.datefrom | date}}</td>
+                <td>{{object.featurename}}</td>
+                <td>{{object.featureprice}}</td>
+                <td>{{object.featureduration}}</td>
+                <td>{{object.username}}</td>
+            </tr>
+       
+           
+        </tbody>
+    </table>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ******************************************************************************************* -->
+      
+                </div>
+                </div>
+                </div>
+
+        </div>	
+    </div>
+</div>
+</div>
+</div>	
+</section>
+
+
+<div class="bottombar">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<span class="copyright">© Saraha Time 2022. All rights reserved.</span>
+<i><img src="./assets/sar/images/credit-cards.png" alt=""></i>
+</div>
+</div>
+</div>
+</div>
+</div>

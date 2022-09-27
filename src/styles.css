@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-outlined-dialog {
+  outline: 2px solid purple;
+}
+
+
+ input {
+  overflow: visible;
+  background: #edf2f6 none repeat scroll 0 0;
+  border-radius: 25px;
+  font-size: 12px;
+  padding: 17px 15px;
+  width: 300px;
+  margin-right: 10px;
+  color: #535165;
+  border: 1px solid #e4e4e4;
+  
+}
+.button{
+
+  border: medium none;
+  border-radius: 30px;
+  color: #fff;
+  float: right;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 30px;
+  transition: all 0.2s linear 0s;
+  color:#fa6342;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

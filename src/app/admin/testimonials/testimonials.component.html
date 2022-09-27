@@ -1,0 +1,140 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+    <section >
+        <div class="gap gray-bg">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row merged20" id="page-contents">
+                    <!-- <div class="col-lg-12" style="margin-top:25px ;">
+                        <div class="info-section">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-users"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>5412</h4>
+                                            <p>70%</p>
+                                            <span>Total Visitors</span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar" style="width:70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-sign-in"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>4515</h4>
+                                            <p>50%</p>
+                                            <span>New Signups </span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar bg-info" style="width:50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-envelope"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>8289</h4>
+                                            <p>40%</p>
+                                            <span>Email Enquiries </span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar bg-valvot" style="width:60%"></div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+            
+                    <div class="row">
+                      <div class="col-lg-3">
+                          <app-asiderbar></app-asiderbar>
+                            </div><!-- sidebar widgets -->
+                          
+                  <div class="central-meta col-lg-9">
+                    <div class="title-block">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="align-left">
+                                    <h5 style="font-size: large;">Manage Tetimonials <span style="color:white; background-color: #fa6342e8" >{{Testimonial.testimonial.length}}</span></h5>
+                                <hr style="width: 600px;color:#fa6342e8 ; border-style: dotted;"/>
+                                </div>
+                            </div>
+                       
+                        </div>
+                    </div>
+                    <div class="event-invites" *ngFor="let obj of Testimonial.testimonial" >
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6 col-sm-12">
+                                <div class="invite-figure" style="display:flex ;">
+                                    <figure><img src="../../../assets/{{obj.imagePath}}"style="height:70px; width:120px; object-fit:cover ;" alt=""></figure>
+                                    <h6><a class="invitor" title=""></a><br><a title="">{{obj.user}}</a></h6>
+                                    <p style="margin-top:25px ;">
+                                       {{obj.content}}
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-2 col-md-2 col-sm-12" *ngIf="obj.is_accepted">
+                                Accept 
+                            </div><div class="col-lg-2 col-md-2 col-sm-12" *ngIf="obj.is_accepted==false">
+                                Reject 
+                            </div> -->
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <div class="invites-btns" *ngIf="obj.is_accepted">
+                                    <a class="main-btn" (click)="UpdateTest(0, obj.testimonialid)" title="" data-ripple="">Accepted</a>
+                                </div>   
+                                <div class="invites-btns" *ngIf="!obj.is_accepted">
+                                    <a class="main-btn2" (click)="UpdateTest(1, obj.testimonialid)" title="" data-ripple="">Process</a>
+                                </div>                                
+                            </div>
+                            
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <div class="invites-btns">
+                                    <a class="main-btn3" (click)="deletetest(obj.testimonialid)" title="" data-ripple="">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+         </div>
+                </div>
+            </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<ng-template #calldeleteDailog>
+    <h2>Are You Sure uyou want to delete this item?</h2>
+    <button mat-dialog-close="yes">Yes</button>
+    <button mat-dialog-close="no">No</button>
+</ng-template>
+
+<!-- <ng-template #callupdateDailog>
+    <form class="example-form" [formGroup]="updateForm" >
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Accept</mat-label>
+          <input type="text" matInput formControlName="is_Accepted"
+                 [(ngModel)]="p_data.is_Accepted">
+        </mat-form-field>
+   
+          <button mat-dialog-close="yes" >Update</button>
+    </form>
+    
+</ng-template> -->

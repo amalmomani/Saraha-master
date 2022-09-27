@@ -1,0 +1,61 @@
+<div class="user-profile">
+    <figure>
+     
+        <img src="../../../assets/user/images/resources/profile-image.jpg" alt="">
+        <ul class="profile-controls">
+            <li><a  title="Premium Account" data-toggle="tooltip"><i class="fa fa-star"></i></a></li>
+           
+        </ul>
+     
+    </figure>
+
+    <div class="profile-section">
+        <div class="row">
+            <div class="col-lg-2 col-md-3">
+                <div class="profile-author">
+                    <div class="profile-author-thumb">
+                        <img alt="author" src="../../../assets/{{this.userService.user.imagepath}}" style="object-fit: cover;
+                      
+                        max-width: 155px;
+                        min-width: 155px;
+                        max-height: 155px;
+                        min-height: 155px;">
+                        <div class="edit-dp">
+                            <label class="fileContainer">
+                                <i class="fa fa-camera"></i>
+                                <input type="file">
+                            </label>
+                        </div>
+                    </div>
+                        
+                    <div class="author-content">
+                        <a class="h4 author-name" href="about.html">{{this.userService.user.username}}</a>
+                        <div class="country">{{this.userService.user.country}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9">
+                <ul class="profile-menu">
+                    <li>
+                        <a class="" href="http://localhost:4200/user">Timeline</a>
+                    </li>
+                 
+                 
+                    <li>
+                        <a class="" href="http://localhost:4200/user/about">About</a>
+                    </li>
+                 
+                 
+
+                  
+                    
+                </ul>
+                <ol class="folw-detail">
+                    <li><span>Posts</span><ins>101</ins></li>
+                    <li><span>Messages</span><ins>1.3K</ins></li>
+                    <li><span>Likes</span><ins>22</ins></li>
+                </ol>
+            </div>
+        </div>
+    </div>	
+</div><!-- user profile banner  -->

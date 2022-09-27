@@ -1,0 +1,27 @@
+.animate-me {
+    -webkit-animation: bgcolorchange 5s infinite; /* Chrome, Safari, Opera */ 
+    animation: 5s infinite bgcolorchange;
+  }
+  @keyframes bgcolorchange {
+    0% {
+      background-color: rgb(246, 137, 137);
+    }
+    30% {
+      background-color: rgb(156, 221, 156);
+    }
+    60% {
+      background-color: rgb(255, 255, 104);
+    }
+    100% {
+      background-color: rgb(213, 157, 243);
+    }
+   
+  }
+  /* Chrome, Safari, Opera */
+   @-webkit-keyframes bgcolorchange {
+        0%   {background: rgb(246, 137, 137);}
+        30%  {background: rgb(126, 226, 126)}
+        60%  {background: rgb(255, 255, 104);}
+        100% {background: rgb(213, 157, 243);}
+   }
+   

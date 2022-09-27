@@ -1,0 +1,378 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+
+
+
+
+
+
+
+
+
+<section>
+    <div class="gap gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row merged20" id="page-contents">
+         <div class="row">
+                    <div class="col-lg-3" style=" position: sticky; top: 0;"  >
+                        <app-asiderbar></app-asiderbar>
+                </div><!-- sidebar widgets -->
+
+                <div class="col-lg-9" style="padding:30 ;">
+                    <div class="central-meta padding30">
+
+                        <h4 class="create-post">All Service</h4>
+                        <a class="main-btn" title="" style="margin-bottom:25px ;"data-toggle="modal" (click)="createService()" > Add Service </a>
+
+                        <div class="row">      
+                            
+
+
+                            <div class="col-lg-112">
+								<div class="central-meta">
+									<div class="row">
+										<div class="col-lg-4 col-md-6" *ngFor="let obj of featureService.feature">
+											<div class="dig-pro">
+												<figure>
+                                                  
+													<img src="./assets/Images/Back5.png" alt="">
+													<div class="user-avatr">
+                                                       <img src="./assets/{{obj.imagePath}}"  style="height:50px; border: none; border-style: none;  object-fit: contain;" alt="">
+
+														<div>
+															<span></span>
+															<ins></ins>
+														</div>	
+													</div>
+												</figure>
+												<div class="digi-meta">
+													<h4><a href="product-detail.html" title="">{{obj.featureName}}</a></h4>
+                                                    <p style="    min-height: 135px;">
+                                                        {{obj.featureDescribtion}}
+                                                    </p>
+													<div class="rate">
+														<ol class="pit-rate">
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class=""><i class="fa fa-star"></i></li>
+														</ol>
+														<span class="qeemat"><span style="font-size: small; color:gray">{{obj.featureDuration}} Days </span>${{obj.featurePrice}}</span>
+													</div>
+                            <span class="qeemat"> <div style="margin-left: 180px; " class="more-post-optns"><i class="ti-more-alt"></i>
+                                <ul>
+                                    <li data-toggle="modal" (click)="updateDailog(obj)"><i class="fa fa-pencil-square-o" ></i>Edit Service</li>
+                                    <li (click)="deleteservice(obj.featureId)"><i class="fa fa-trash-o"></i>Delete Service</li>                                                                               
+                                </ul>
+                            </div></span>
+                          </div>
+											</div>
+										</div>
+									
+									
+									</div>
+								</div>
+							</div>
+
+                            
+                            
+                            <!-- <div class="col-lg-4 col-md-8" *ngFor="let obj of featureService.feature">
+                                <div class="dig-pro"> -->
+                                    <!-- <figure> -->
+                                        <!-- <img src="./assets/{{obj.imagePath}}"  style="height:200px; width:300px; object-fit: contain;" alt="">
+                                        -->
+                                    <!-- </figure> -->
+                                    <!-- <div class="digi-meta">
+                                        <h4>{{obj.featureName}}</h4>
+                                        <p>{{obj.featureDuration}} Months </p>
+                                        <div class="rate">
+                                            <span class="qeemat"> <div style=" margin-right: 20px;" class="more-post-optns"><i class="ti-more-alt"></i>
+                                                <ul>
+                                                    <li (click)="updateDailog(obj)"><i class="fa fa-pencil-square-o" ></i>Edit Service</li>
+                                                    <li (click)="deleteservice(obj.featureId)"><i class="fa fa-trash-o"></i>Delete Service</li>                                                                               
+                                                </ul>
+                                            </div></span>
+                                            <span class="qeemat" style="float: left; color:#535165">{{obj.featurePrice}}$</span>
+
+                                           
+                                        </div>
+                                    </div>												 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <section>
+                        <div class="gap2 gray-bg" style="padding: 0px;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row merged20" id="page-contents">
+                                         
+                                            <div class="col-lg-12" >
+                                               
+                                                <div class="central-meta padding30">
+
+                                                    <h4 class="create-post">All Service</h4>
+                                                    <a class="main-btn" title="" style="margin-bottom:25px ;" mat-button (click)="CreateNewSevice()"> Add Service </a>
+
+                                                    <div class="load-more">
+                                                        <div *ngFor="let obj of featureService.feature" class="central-meta item"  >
+                                                          
+                                                            <div class="classic-post" style="display:flex ;">                                                        
+                                                                <div class="classic-pst-meta">                                                                   
+                                                                    <ul class="badgez-widget" style=" padding-right: 20px;">
+                                                                         <li> 
+                                                                        <a href="#" title="Male User" data-toggle="tooltip"><img style="width:50px" src="./assets/{{obj.imagePath}}" alt=""></a>
+                                                                         </li> 
+                                                                    </ul>
+                                                                    <h4 style=" margin-right: 20px;"><i class="fa fa-check-circle" title="verified"></i> <a href="#" title="">{{obj.featureName}} </a></h4>
+                                                                   <p>{{obj.featureName}}</p>
+                                                                    <span style=" margin-right: 20px;" class="prise">${{obj.featurePrice}}</span>
+                                                                     <div class="location-area">
+                                                                        <i style=" margin-right: 20px;">Duration: {{obj.featureDuration}} month</i>
+                                                                    </div> -->
+                                                                    <!-- <div class="more"> 
+                                                                        <div style=" margin-right: 20px;" class="more-post-optns"><i class="ti-more-alt"></i>
+                                                                            <ul>
+                                                                                <li (click)="updateDailog(obj)"><i class="fa fa-pencil-square-o" ></i>Edit Service</li>
+                                                                                <li (click)="deleteservice(obj.featureId)"><i class="fa fa-trash-o"></i>Delete Service</li>                                                                               </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                             </div> 
+                                                        </div>
+                                                     
+                                                   </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section> 
+                </div>
+         </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> -->
+<ng-template #calldeleteDailog>
+    <h2>Are You Sure you want to delete this item?</h2>
+    <button mat-dialog-close="yes">Yes</button>
+    <button mat-dialog-close="no">No</button>
+</ng-template>
+
+
+<!-- <ng-template #callupdateDailog>
+    
+    
+</ng-template> -->
+
+
+<!-- Button trigger modal -->
+
+
+
+
+
+    <!--Add Service Modal-->
+      <!-- Modal -->
+  <!-- <div class="modal fade" id="createService" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Add New Service</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="width:80% ;margin: auto;">
+            <form  class="" [formGroup]="createForm" >
+                <div style="width:80%;margin:auto;padding:auto">
+             
+                  <input style="margin: 3px;
+                  margin-bottom: 12px;
+                  min-width: 298px;
+                  max-width: 94px;" placeholder="Service Name" type="text" matInput formControlName="featureName" required>
+        
+            <br>
+                    <input placeholder="Price" type="number" matInput formControlName="featurePrice">
+            <br>
+              <input style="margin-top:15px ;" placeholder="Duration" type="number" matInput formControlName="featureDuration" >
+                  <div class="row">
+              <input style="margin-top:15px ;    margin-left: 10px;
+              "   placeholder=" Describtion" type="string" matInput formControlName="featureDescribtion" >
+                  </div>
+                 <div class="row">
+                    <label style="
+                 color: red;
+    font-size: 10px;
+    margin-bottom: -8px;
+    margin-top: 8px;" 
+    
+    
+                    >Optional</label>
+
+                    <input style="margin-top:5px ;    margin-left: 15px;
+                    " placeholder="Old Price" type="string" matInput formControlName="oldPrice"  >
+                   </div>
+                    <div class="row">
+
+                  <label>Feature Image </label>
+                  <input style="margin-left:15px" type="file" #file    >
+                    </div>
+
+                  <button style="    margin-top: 19px;
+                  margin-right: -3px;" (click)="createService() ">Create</button>
+                </div>
+                </form>
+          
+            </div>
+        <div class="modal-footer">
+      
+        </div>
+      </div>
+    </div>
+<<<<<<< HEAD
+
+
+    
+    <div class="modal fade" id="createService" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+=======
+  </div> -->
+    <ng-template class="modal fade" #callupdateDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Update Service</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width:80% ;margin: auto;">
+                <form  class="" [formGroup]="updateForm"  >
+                    <div style="width:80%;margin:auto;padding:auto">
+                 
+                      <input style="    margin: 3px;margin-bottom: 12px;min-width: 298px; max-width: 94px;" placeholder="featureName" type="text" matInput formControlName="featureName"  [(ngModel)]="p_data.featureName" >
+                      <input placeholder="Price" type="number" matInput formControlName="featurePrice" [(ngModel)]="p_data.featurePrice">
+                      <input style="margin-top:15px ;" placeholder="Duration in days" type="number" matInput formControlName="featureDuration" [(ngModel)]="p_data.featureDuration">
+                      <input style="margin-top:15px ;    margin-left: 10px;" placeholder=" Describtion" type="string" matInput formControlName="featureDescibtion" [(ngModel)]="p_data.featureDescribtion" >
+
+                     <div class="row">
+                        <label style=" color: red; font-size: 10px; margin-bottom: -8px;margin-top: 8px;" >Optional</label>
+    
+                       <input style="margin-top:5px ; margin-left: 15px;" placeholder="Old Price" type="string" matInput formControlName="oldPrice" [(ngModel)]="p_data.oldPrice"  >
+                      </div>
+                      <div class="row">
+                      <label>Feature Image </label>
+                      <input style="margin-left:15px" type="file" #file (change)="uploadImage(file.files)"  >
+                     </div>
+                      <button style="    margin-top: 19px;
+                      margin-right: -3px;" (click)="updateService()">Update</button>
+                     </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+    </ng-template>
+
+
+
+    <ng-template class="modal fade" #callCreateDailog tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Add new Service</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="width:80% ;margin: auto;">
+                <form  class="" [formGroup]="createForm"  >
+                    <div style="width:80%;margin:auto;padding:auto">
+                 
+                      <input style="    margin: 3px;margin-bottom: 12px;min-width: 298px; max-width: 94px;" placeholder="featureName" type="text" matInput formControlName="featureName">
+                      <input placeholder="Price" type="number" matInput formControlName="featurePrice" >
+                      <input style="margin-top:15px ;" placeholder="Duration" type="number" matInput formControlName="featureDuration" >
+                      <div class="row">
+                      <input style="margin-top:15px ;    margin-left: 10px;" placeholder=" Describtion" type="text" matInput formControlName="featureDescribtion"  >
+
+                      </div>
+                     <div class="row">
+                        <label style=" color: red; font-size: 10px; margin-bottom: -8px;margin-top: 8px;" >Optional</label>
+    
+                       <input style="margin-top:5px ; margin-left: 15px;" placeholder="Old Price" type="number" matInput formControlName="oldPrice"  >
+                      </div>
+                      <div class="row">
+                      <label>Feature Image </label>
+                      <input style="margin-left:15px" type="file" #file  (change)="uploadImage(file.files)" formControlName="imagePath" >
+                     </div>
+                      <button style="    margin-top: 19px;
+                      margin-right: -3px;" (click)="createThisService()">Create</button>
+                     </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+    </ng-template>
+
+
+    <!-- <ng-template #callupdateDailog> -->
+
+        
+        <!-- <form class="" [formGroup]="updateForm" >
+            <mat-form-field  >
+              <mat-label>Service Name</mat-label>
+              <input  type="text" matInput formControlName="featureName"
+                     [(ngModel)]="p_data.featureName">
+            </mat-form-field>
+        <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>price</mat-label>
+                <input type="number" matInput formControlName="featurePrice"
+                [(ngModel)]="p_data.featurePrice">
+              </mat-form-field>
+        <br>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Feature Duration</mat-label>
+          <input type="number" matInput formControlName="featureDuration" [(ngModel)]="p_data.featureDuration">
+              </mat-form-field>
+              <mat-label>Image :</mat-label>
+              <input type="file" #file formControlName="imagePath"  (change)="uploadImage(file.files)" >
+              <button (click)="updateService()">Update</button>
+        </form>
+         -->
+    <!-- </ng-template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

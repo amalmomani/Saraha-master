@@ -1,0 +1,82 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+<section>
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                        <app-profile-bar></app-profile-bar>
+                        <!-- Message -->
+                        <div class="col-lg-12">
+                            <div class="central-meta">
+                                <div class="editing-interest">
+                                    <span class="create-post"><i class="ti-bell"></i> All Activities<a title=""
+                                            href="setting.html"></a></span>
+                                    <div class="notification-box">
+                                        <ul>
+                                            <li *ngFor="let activity of activityService.userActivity">
+                                                <figure *ngIf="activity.activityName == 'post'"><img
+                                                        src="../../../assets/{{userService.user.imagepath}}" style=" width:40px ; height:40px; object-fit:cover ;   " alt="">
+                                                </figure>
+                                                <figure *ngIf="activity.activityName == 'like'"><img
+                                                        src="../../../assets/{{this.activityService.activityUserLike.get(activity.likeId).imagepath}} "style=" width:40px ; height:40px; object-fit:cover ;"
+                                                        alt=""></figure>
+
+                                                        <figure *ngIf="activity.activityName == 'comment'"><img
+                                                            src="../../../assets/{{this.activityService.activityUserComment.get(activity.commentId).imagepath}}" style=" width:40px ; height:40px; object-fit:cover ;"
+                                                            alt=""></figure>
+                                                            <figure *ngIf="activity.activityName == 'follow'"><img
+                                                                src="../../../assets/{{this.activityService.activityUserFollow.get(activity.followId).imagepath}} "style=" width:40px ; height:40px; object-fit:cover ;"
+                                                                alt=""></figure>
+        
+    
+                                                <div *ngIf="activity.activityName == 'post'" class="notifi-meta">
+                                                    <p>You Share a new Post</p>
+                                                    <span><i class="fa fa-share-square-o"></i> {{activity.activityDate |
+                                                        date:'short'}}</span>
+                                                </div>
+                                                <div *ngIf="activity.activityName == 'like'" class="notifi-meta">
+                                                    <p>You liked a <strong><a
+                                                                href="http://localhost:4200/user/viewProfile/{{this.activityService.activityUserLike.get(activity.likeId).userid}}"  style=" width:40px ; height:40px; object-fit:cover ;">
+                                                                {{this.activityService.activityUserLike.get(activity.likeId).username}}'s
+                                                            </a></strong> Post</p>
+                                                    <span><i class="fa fa-thumbs-up"></i> {{activity.activityDate |
+                                                        date:'short'}}</span>
+                                                </div>
+                                                <div *ngIf="activity.activityName == 'comment'" class="notifi-meta">
+                                                    <p>You commented on a <strong><a
+                                                                href="http://localhost:4200/user/viewProfile/{{this.activityService.activityUserComment.get(activity.commentId).userid}}" style=" width:40px ; height:40px; object-fit:cover ;">
+                                                                {{this.activityService.activityUserComment.get(activity.commentId).username}}'s
+                                                            </a></strong> Post</p>
+                                                    <span><i class="fa fa-comment"></i> {{activity.activityDate |
+                                                        date:'short'}}</span>
+                                                </div>
+                                                <div *ngIf="activity.activityName == 'follow'" class="notifi-meta">
+                                                    <p>You Follow <strong><a
+                                                                href="http://localhost:4200/user/viewProfile/{{this.activityService.activityUserFollow.get(activity.followId).userid}}" style=" width:40px ; height:40px; object-fit:cover ;">
+                                                                {{this.activityService.activityUserFollow.get(activity.followId).username}}'s
+                                                            </a></strong></p>
+                                                    <span><i class="fa fa-user"></i> {{activity.activityDate |
+                                                        date:'short'}}</span>
+                                                </div>
+                                                <div class="more">
+                                                    <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <i *ngIf="activity.activityName == 'post'" (click)="deleteActivity(1,activity.postId)" class="del ti-close" title="Remove"></i>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- centerl meta -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- content -->

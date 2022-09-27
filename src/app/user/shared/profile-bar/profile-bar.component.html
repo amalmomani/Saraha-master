@@ -1,0 +1,77 @@
+<div class="user-profile">
+    <figure>
+     
+        <img src="../../../assets/user/images/resources/profile-image2.jpg" alt="">
+        <ul class="profile-controls">
+            <li><a [routerLink]="['/user/my-badges']" data-toggle="tooltip"><i class="fa fa-star"></i></a></li>
+           
+        </ul>
+     
+    </figure>
+
+    <div class="profile-section">
+        <div class="row">
+            <div class="col-lg-2 col-md-3">
+                <div class="profile-author">
+                    <div class="profile-author-thumb">
+                        <img *ngIf="this.userService.user.imagepath != null" style="object-fit: cover;
+                      
+                        max-width: 155px;
+                        min-width: 155px;
+                        max-height: 155px;
+                        min-height: 155px;" alt="author" src="../../../assets/{{this.userService.user.imagepath}}" >
+                         <img *ngIf="this.userService.user.imagepath == null" style="object-fit: cover;
+                      
+                         max-width: 155px;
+                         min-width: 155px;
+                         max-height: 155px;
+                         min-height: 155px;" alt="author" src="../../../../assets/Unknown_person.jpg" >
+                        <!-- <div class="edit-dp">
+>>>>>>> 2eae09b20cb237b0a5d8dc79a90f1c3a4c0ca4f3
+                            <label class="fileContainer">
+                                <i class="fa fa-camera"></i>
+                                <input type="file">
+                            </label>
+                        </div> -->
+                    </div>
+                        
+                    <div class="author-content">
+                        <a class="h4 author-name" href="about.html">{{this.userService.user.username}}</a>
+                        <div class="country">{{this.userService.user.country}}</div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-9">
+                <ul class="profile-menu">
+                    <li>
+                        <a class="" [routerLink]="['/user/my-timeline']">Timeline</a>
+                    </li>
+                    <li>
+                        <a class="" [routerLink]="['/user/messages']">Messages</a>
+                    </li>
+                    <li>
+                        <a class="" [routerLink]="['/user/search']">People</a>
+                    </li>   
+                    <li>
+                        <a class="" [routerLink]="['/user/notifications']">Activity</a>
+                    </li> <li>
+                        <a class="" [routerLink]="['/user/about']">About</a>
+                    </li>
+                    <li>
+                        <a class="" [routerLink]="['/user/testimony']">Testimonial</a>
+                    </li>
+                    <!-- Notifications -->
+                   
+                            
+                    
+                </ul>
+                <ol class="folw-detail">
+                    <li [routerLink]="['/user/messages']"><span>Messages</span><ins>{{mess.messcount}}</ins></li>
+                    <li [routerLink]="['/user/follower']"><span>Followers</span><ins>{{followService.follower.length}}</ins></li>
+                    <li [routerLink]="['/user/following']"><span>Following</span><ins>{{followService.following.length}}</ins></li>
+                </ol>
+            </div>
+        </div>
+    </div>	
+</div><!-- user profile banner  -->

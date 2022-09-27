@@ -1,0 +1,78 @@
+<div class="fixed-sidebar right col-lg-2">
+    <div class="chat-friendz">
+        <ul class="chat-users">
+            <div  *ngFor="let active of active.Activeusers">
+            <li >
+                <div class="user-thmb author-thmb" style="padding-top:10px ;">
+                  <a [routerLink]="['/user/viewProfile/',active.userid]"> <img  title="{{active.username}}" *ngIf="active.imagepath == null"
+                      src="../../../../assets/Unknown_person.jpg" style="object-fit:cover ; width:40px; height: 40px; border-radius: 100%;"></a> 
+                 <a [routerLink]="['/user/viewProfile/',active.userid]"> <img  title="{{active.username}}" *ngIf="active.imagepath != null" 
+                    src="../../../../assets/{{active.imagepath}} " style="object-fit:cover ; width:40px;height: 40px;  border-radius: 100%;"></a>
+                    <span class="status f-online"></span>
+                </div>
+            </li>
+        </div>
+            <!-- <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend2.jpg" alt="">
+                    <span class="status f-away"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend3.jpg" alt="">
+                    <span class="status f-online"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend4.jpg" alt="">
+                    <span class="status f-offline"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend5.jpg" alt="">
+                    <span class="status f-online"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend6.jpg" alt="">
+                    <span class="status f-online"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend7.jpg" alt="">
+                    <span class="status f-offline"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend8.jpg" alt="">
+                    <span class="status f-online"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend9.jpg" alt="">
+                    <span class="status f-away"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend10.jpg" alt="">
+                    <span class="status f-away"></span>
+                </div>
+            </li>
+            <li>
+                <div class="author-thmb">
+                    <img src="../../../../assets/user/images/resources/side-friend8.jpg" alt="">
+                    <span class="status f-online"></span>
+                </div>
+            </li> -->
+        </ul>
+      
+    </div>
+</div><!-- right sidebar user chat -->

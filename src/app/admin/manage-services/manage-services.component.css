@@ -1,0 +1,35 @@
+.mat-dialog-container{
+
+    width: 51%;
+    height: 622px;
+
+}
+.mat-dialog-title {
+    margin: 0 0 20px;
+    display: block;
+    color: #fa6342;
+}
+.waedInput{
+
+    background: #edf2f6 none repeat scroll 0 0;
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 14px 15px;
+    width: 100%;
+    color: #535165;
+    border: 1px solid #e4e4e4;
+
+    
+}
+.waedButtun
+{
+border: medium none;
+    border-radius: 30px;
+    color: #fff;
+    float: right;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 30px;
+    transition: all 0.2s linear 0s;
+
+}

@@ -1,0 +1,85 @@
+
+    <section>
+        <div class="gap no-gap signin whitish medium-opacity register">
+            <div class="bg-image" style="background-image:url(../assets/sar/images/resources/theme-bg.jpg)"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="big-ad">
+                            <a class="" href="http://localhost:4200//Home">   <figure><img src="../../../assets/{{home.homePage.logo}}" alt=""></figure>
+                            </a>
+                            <h1>Welcome to the Saraha Time</h1>
+                            <p>
+                                 Saraha Time is a social network template that can be used to connect people. use this template for multipurpose social activities like job, dating, posting, bloging and much more. Now join & Make Cool Friends around the world !!!                             
+                            </p>
+                            <div class="barcode">
+                                <!-- <figure><img src="./assets/sar/images/resources/Barcode.jpg" alt=""></figure> -->
+                                <div class="app-download">
+                                    <h1>Welcome to the Saraha Time</h1>
+                                    <ul class="colla-apps">
+                                        <li><a title="" href="https://play.google.com/store?hl=en"><img src="./assets/sar/images/android.png" alt="">android</a></li>
+                                        <li><a title="" href="https://www.apple.com/lae/ios/app-store/"><img src="./assets/sar/images/apple.png" alt="">iPhone</a></li>
+                                        <li><a title="" href="https://www.microsoft.com/store/apps"><img src="./assets/sar/images/windows.png" alt="">Windows</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="we-login-register">
+                            <div class="form-title">
+                                <i class="fa fa-key"></i>Sign Up
+                                <span>Sign Up now and meet the awesome friends around the world.</span>
+                            </div>
+                            <form class="we-form"  [formGroup]="registerForm">
+                                <mat-form-field appearance="outline" >
+                                    <input type="text" placeholder="Full Name" class="inputfield" matInput formControlName="name">
+                                
+                              
+                                </mat-form-field>
+                             
+                                <mat-form-field appearance="outline" >
+
+                                
+                                <input type="text" placeholder="email" class="inputfield"  (change)="IsEmailExist()" formControlName="email">
+                               
+ 
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" >
+
+                                <input type="password" placeholder="Password"  class="inputfield " matInput formControlName="password" >
+                             
+                                
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" >
+
+                                <input type="text" placeholder="+1234-567-987" class="inputfield" matInput formControlName="phonenumber">
+                             
+                                  <!--I guess this is not working-->
+                             
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" >
+
+                                <input type="date" class="inputfield" matInput formControlName="Birthdate">                      
+                               
+                             
+                            </mat-form-field>
+                           
+                                <div style="display:flex ; width: 100px; margin-left: 2.5rem;" >
+                                <input type="radio" id="rd1" value="Male" formControlName="gender">
+                                <label style="margin-bottom: 1rem; margin-right: 1rem;" for="rd1">Male</label>
+                                <input type="radio" id="rd2" value="Female" formControlName="gender">
+                                <label style="margin-bottom: 1rem ; margin-right: 1rem;" for="rd2">Female</label></div>
+                                
+                            
+                                <button class="b"  type="submit" (click)="CreateUser()" cdkFocusInitial>Register</button>
+                            </form>
+                            <span>already have an account? <a class="we-account underline" [routerLink]="['/authentication/Login']" title="">Sign in</a></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+

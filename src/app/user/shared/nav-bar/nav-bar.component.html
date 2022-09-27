@@ -1,0 +1,142 @@
+<div  class="topbar stick sticky">
+    
+    <div class="logo">
+        <a title="" href="newsfeed.html"><img src="../../../../assets/{{home.homePage.logo}}"  style=" height:50px; width:100px; object-fit:contain ;"lt=""></a>
+    </div>
+    <div class="top-area" > 
+      
+
+       
+
+       
+       
+         <ul class="setting-area" style="width: 50%; margin:auto ;">
+          
+              
+                <button  title="Notifications" style="background-color:none ; background:none;border: none; " [routerLink]="['/user/my-timeline']" type="button" class="btn btn-primary" >
+                    <i class="fa fa-home"></i>
+    
+                    </button >
+                    <button  title="Notifications" style="background-color:none ; background:none;border: none; " type="button" [routerLink]="['/user/search']" class="btn btn-primary" >
+                        <i class="fa fa-search"></i>
+        
+                        </button >
+                    <button  title="Notifications" style="background-color:none ; background:none;border: none; " type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="getNot()">
+                        <i class="fa fa-user"></i><i style="border-radius:100% ;margin-bottom: 5px;    padding: 4px;
+                        font-size: 10px;" class="bg-red" *ngIf="this.nCount!=0">{{this.nCount}}</i>
+        
+
+                        </button >
+           
+         </ul>
+
+        <div class="user-img">
+           
+            <h5>{{this.userService.user.username}}</h5>
+            <img *ngIf="this.userService.user.imagepath != null" style="object-fit:cover ; height:60px; width:60px"
+             alt="author"
+              src="./assets/{{this.userService.user.imagepath}}">
+
+              <img *ngIf="this.userService.user.imagepath == null" style="object-fit:cover ; height:60px; width:60px"
+             alt="author"
+              src="../../../../assets/Unknown_person.jpg">
+            <span class="status f-online"></span>
+             <span class="status f-online"></span>
+           
+        </div>
+            <div class="main-menu">
+                <a href="http://localhost:4200/authentication/logout" ><i style="padding:10px ;" class="fa fa-sign-out"></i></a>
+              </div>
+        </div>
+       
+      
+       
+   
+        
+    </div>
+  
+ 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Notifications</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="margin-left: -39px;">
+           
+           
+        <ul>
+            <div *ngFor="let obj of this.notification">
+
+            <li *ngIf="obj.commentId !=0 || obj.messageId!=0" style="    list-style: none; ">
+                <div style="padding-top: 13px;background-color: whitesmoke;border-radius: 10px;margin-top: 4px;" *ngIf="obj.is_Read==0">
+                <div class="comet-avatar">
+                    <a [routerLink]="['/user/viewProfile',obj.userFrom]">
+                    <img *ngIf="obj.notType != null" alt="" src="../../../../assets/{{obj.notType}}" style="width:40px;height: 40px;margin-top:1pc;margin-left: 5px;border-radius: 100%;">
+                    <img *ngIf="obj.notType == null" src="../../../assets/Unknown_person.jpg" alt="">
+
+                </a>
+                </div>
+                <div style="    padding-top: 13px;" class="we-comment">
+                    <h5 style="color: #fa6342; margin-top: 12px;    color: #fa6342;
+                    margin-top: 12px;
+                    font-size: 15px;
+                    font-family: system-ui;
+                    font-weight: bold;" (click)="updateIsRead(obj.notificationId)">
+                        <a style="color: #fa6342;margin-top: 12px;" title="" [routerLink]="['/user/my-timeline/']" *ngIf="obj.commentId!=0">{{obj.notificationText}}</a>
+                        <a style="color: #fa6342;margin-top: 12px;" title="" [routerLink]="['/user/messages/']" *ngIf="obj.commentId==0">{{obj.notificationText}}</a>
+
+                    </h5>
+                    <div class="row" style="max-width: 200px;">  <i class="fa fa-quote-left" aria-hidden="true" style="    margin-left: 16px;
+                        font-size: 10px;
+                        margin-right: -14px;
+                        margin-top: -13px;"></i><p style="margin-left: 18px;margin-top: -16px;">{{obj.message}}</p><i class="fa fa-quote-right" aria-hidden="true"style="    margin-left: 3px;
+    font-size: 10px;
+    margin-right: -14px;
+    margin-top: 0px;"></i> </div>
+                  
+                    <div class="inline-itms">
+                        <span>{{obj.notificationDate | date :'M/d/yy, h:mm a'}}</span>
+                     </div>
+                </div>
+            </div>
+            </li>
+            <li *ngIf="obj.followId !=0 || obj.likeId!=0" style=" list-style: none; " >
+                <div style="padding-top: 13px; background-color: whitesmoke;border-radius: 10px;margin-top: 4px;" *ngIf="obj.is_Read==0">
+                <div class="comet-avatar">
+                  <a [routerLink]="['/user/viewProfile',obj.userFrom]">  <img alt="" src="../../../../assets/{{obj.message}}" style="width:40px;height: 40px;margin-top:1pc;margin-left: 5px;border-radius: 100%;"></a>
+
+                </div>
+                <div class="we-comment" style="padding-top: 13px;">
+                    <h5 style=" color: #fa6342;margin-top: 12px;    color: #fa6342;
+                    margin-top: 12px;
+                    font-size: 15px;
+                    font-family: system-ui;
+                    font-weight: bold;" (click)="updateIsRead(obj.notificationId)">
+                        <a style="color: #fa6342;margin-top: 12px;"  title=""[routerLink]="['/user/my-timeline/']" *ngIf="obj.likeId!=0" >{{obj.notificationText}}</a>
+                        <a style="color: #fa6342;margin-top: 12px;"  title=""[routerLink]="['/user/viewProfile/']" *ngIf="obj.likeId==0" >{{obj.notificationText}}</a>
+
+                    </h5>
+                    <p></p>
+
+                    <div class="inline-itms">
+                        <span>{{obj.notificationDate | date :'M/d/yy, h:mm a'}}</span>
+              
+                    </div>
+                </div>
+                </div>
+
+            </li>
+          
+        </div>
+        </ul>
+    
+      </div>
+    </div>
+  </div>
+  
+
+

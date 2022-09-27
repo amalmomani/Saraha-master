@@ -1,0 +1,117 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+<section>
+    <div class="gap2 gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row merged20" id="page-contents">
+                       <app-profile-bar></app-profile-bar>
+                    <!-- Message -->
+                    <div class="col-lg-12" >
+
+                        <div class="central-meta item" *ngFor="let message of this.messageService.userMessages">
+                         
+                            <div class="user-post" id="{{message.messageId}}">
+                                <div class="friend-info">
+                                    <figure>
+                                        <img *ngIf="!message.is_Anon" src="./../../assets/{{message.userFromImage}}" alt="">
+                                        <img *ngIf="message.is_Anon" src="../../../assets/Unknown_person.jpg" alt="">
+
+                                    </figure>
+                                    <div class="friend-name">
+                                        <div class="more">
+                                            <div class="more-post-optns"><i class="ti-more-alt"></i>
+                                                <ul>
+                                                   
+                                                    <li class="bad-report" (click)="openReportDailog(message.toId,message.fromId)"><i class="fa fa-flag"></i>Report</li>
+                                                    <!-- (click)="MsgToPost(message.messageContent, message.userTo)" -->
+                                                    <li class="bad-report" (click)="openPublishDailog(message.messageContent)" ><i class="fa fa-globe"></i>Publish</li>
+                                                    <li class="bad-report" (click)="openReplyDailog(message.fromId, message.toId)"><i class="fa fa-reply"></i>Reply</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                      
+                                        <ins *ngIf="!message.is_Anon"><a    href="http://localhost:4200/user/viewProfile/{{message.fromId}}" title="">{{message.from}}</a> </ins>
+                                        <ins *ngIf="message.is_Anon"><a  title="">Unknown</a> </ins>
+                                        <span>{{message.messageDate| date:'medium'}} </span>
+                                    </div>
+                                    <div class="post-meta">
+                                     								
+                                        <div class="description">
+                                            <p >{{message.messageContent}}  </p>
+                                    
+                                        </div>
+                              
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            
+                        </div>
+                       
+                       
+                    
+                    </div>
+                      
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>	
+</section><!-- content -->
+
+<ng-template #callreplyDailog>
+    <form class="example-form" [formGroup]="replyForm" >
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Message Content</mat-label>
+          <textarea rows="4" type="text" matInput formControlName="messageContent">
+          </textarea>
+        </mat-form-field>
+   
+ 
+      
+          <button [mat-dialog-close]="true" (click)="replyMessage()">Send Message</button>
+    </form>
+    
+</ng-template>
+
+<ng-template #callPublishDailog>
+    <form class="example-form" [formGroup]="publishForm" >
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Reply: </mat-label>
+            <textarea rows="4" type="text" matInput formControlName="reply">
+            </textarea>
+          </mat-form-field>
+       
+  
+          <button [mat-dialog-close]="true" (click)="MsgToPost()">Reply</button>
+    </form>
+    
+</ng-template>
+
+
+<ng-template #callReportDailog>
+    <form class="example-form" [formGroup]="reportForm" >
+        <select formControlName="Message" style="width: 300px;" (change)="changeOther()">
+            <option>Irrelevant content</option>
+            <option>Spam</option>
+            <option>Hate speech</option>
+            <option>Violence</option>
+            <option>Other</option>
+        </select>
+     
+       <br>
+       <br>
+       <mat-form-field style="width: 300px;" [hidden]="!isOther" class="example-full-width" appearance="fill">
+        <mat-label>Other: </mat-label>
+        <textarea  rows="4" type="text" matInput formControlName="Message">
+        </textarea>
+       
+      </mat-form-field>
+      <br>
+        <br>
+          <button [mat-dialog-close]="true" (click)="reportMessage()">Report</button>
+    </form>
+    
+</ng-template>

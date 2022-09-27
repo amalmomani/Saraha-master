@@ -1,0 +1,340 @@
+<app-nav-bar></app-nav-bar>
+<app-active-bar></app-active-bar>
+<section>
+	<div class="gap2 gray-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="row merged20" id="page-contents">
+						<app-profile-bar></app-profile-bar>
+						<div class="col-lg-3">
+							<aside class="sidebar static left">
+								<div class="widget">
+									<h4 class="widget-title">User Badges <a class="see-all" href="#" title="">See
+											All</a></h4>
+									<ul class="badgez-widget" *ngIf="userService.user.is_Premium">
+										<li>
+											<a href="#" title="1000+ Subscribers" data-toggle="tooltip"><img
+													src="../../../assets/user/images/badges/badge3.png" alt=""></a>
+										</li>
+
+									</ul>
+								</div>
+								<div class="advertisment-box ">
+									<h4 class="">advertisment</h4>
+									<figure>
+										<a href="#" title="Advertisment"><img
+												src="../../../assets/user/images/resources/ad-widget.gif" alt=""></a>
+									</figure>
+								</div>
+
+
+							</aside>
+						</div><!-- sidebar -->
+						<div class="col-lg-9 " style="width:700px">
+							<div>
+								<div class="" *ngFor="let obj of this.featureService.feature;">
+									<div class="central-meta" *ngIf="obj.featureId == 81">
+										<div class="">
+											<div class="central-meta">
+												<div class="full-postmeta">
+													<ol class="pit-rate">
+														<li class="rated"><i class="fa fa-star"></i></li>
+														<li class="rated"><i class="fa fa-star"></i></li>
+														<li class="rated"><i class="fa fa-star"></i></li>
+														<li class="rated"><i class="fa fa-star"></i></li>
+														<li class=""><i class="fa fa-star"></i></li>
+														<li><span>4.7/5</span></li>
+													</ol>
+													<div class="share">
+														<span>Saraha Badge</span>
+														<a style="width:50px" href="#" title="1000+ Subscribers"
+															data-toggle="tooltip"><img src="./assets/{{obj.imagePath}}"
+																alt=""></a>
+
+													</div>
+
+													<i></i>
+													<div class="row">
+														<div class="col-sm-12">
+															<ul class="list-inline rating-list"
+																*ngFor="let star of stars"
+																style="display: inline-block">
+																<li (click)="countStar(star)"
+																	[ngClass]="{'selected': (star <= selectedValue)}">
+																	<i class="fa fa-star"></i>
+																</li>
+															</ul>
+														</div>
+													</div>
+
+													<h4> <span>{{obj.featureName}}
+														</span> </h4>
+
+													<p>
+														{{obj.featureDescribtion}} 😉
+													</p>
+
+													<form class="qty-select">
+														<div class="input-group bootstrap-touchspin"><span
+																class="input-group-btn"></span><span
+																class="input-group-addon bootstrap-touchspin-prefix"
+																style="display: none;"></span><input
+																class="qty form-control" type="text" name="value"
+																value="1" style="display: block;"><span
+																class="input-group-addon bootstrap-touchspin-postfix"
+																style="display: none;"></span><span
+																class="input-group-btn"></span></div>
+													</form>
+													<span class="prices style4">
+														<ins>
+															<span class="woocommerce-Price-amount amount">
+																<span
+																	class="woocommerce-Price-currencySymbol">$</span>{{obj.featurePrice}}
+															</span>
+														</ins>
+														<del>
+															<span class="woocommerce-Price-amount amount"
+																*ngIf="obj.oldPrice > 0 ">
+																<span
+																	class="woocommerce-Price-currencySymbol">$</span>{{obj.oldPrice}}
+															</span>
+														</del>
+													</span>
+													<div class="post-as" *ngIf="obj.rateCount >0">
+														<ol class="pit-rate">
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class="rated"><i class="fa fa-star"></i></li>
+															<li class=""><i class="fa fa-star"></i></li>
+															<li><span>{{obj.starRates}}/{{obj.rateCount}}</span></li>
+														</ol>
+													</div>
+													<div class="extras">
+
+														<a type="button" class="waed strip play-btn" data-toggle="modal"
+															data-target="#exampleModalCenter">
+															<i class="fa fa-credit-card"></i> Buy Now
+														</a>
+														<!-- ************************************************************************ -->
+														<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+															role="dialog" aria-labelledby="exampleModalCenterTitle"
+															aria-hidden="true">
+															<div class="modal-dialog modal-dialog-centered"
+																role="document">
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<h5 class="modal-title"
+																			id="exampleModalLongTitle">
+																			Billing Details
+																		</h5>
+																		<button type="button" class="close"
+																			data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<div class="">
+																			<div class="text-right">
+																				<i class="" data-dismiss="modal"></i>
+																			</div>
+																			<div class="tabs mt-3">
+																				<ul class="nav nav-tabs" id="myTab"
+																					role="tablist">
+																					<li class="nav-item"
+																						role="presentation">
+																						<a class="nav-link active"
+																							id="visa-tab"
+																							data-toggle="tab"
+																							href="#visa" role="tab"
+																							aria-controls="visa"
+																							aria-selected="true">
+																							<img src="https://i.imgur.com/sB4jftM.png"
+																								width="80">
+																						</a>
+																					</li>
+																					<li class="nav-item"
+																						role="presentation">
+																						<a class="nav-link"
+																							id="paypal-tab"
+																							data-toggle="tab"
+																							href="#paypal" role="tab"
+																							aria-controls="paypal"
+																							aria-selected="false">
+																							<img src="https://i.imgur.com/yK7EDD1.png"
+																								width="80"> </a>
+																					</li>
+																				</ul>
+																				<div class="tab-content"
+																					id="myTabContent">
+																					<div class="tab-pane fade show active"
+																						id="visa" role="tabpanel"
+																						aria-labelledby="visa-tab">
+																						<div class="mt-4 mx-4">
+																							<div class="text-center">
+																								<h5>Credit card</h5>
+																							</div>
+																							<div class="form mt-3">
+																								<form
+																									[formGroup]="VisaForm">
+																									<div
+																										class="inputbox">
+
+																										<input
+																											type="text"
+																											name="name"
+																											class="form-control"
+																											required="required">
+																										<span>Cardholder
+																											Name</span>
+																									</div>
+																									<div
+																										class="inputbox">
+																										<input
+																											type="text"
+																											class="form-control"
+																											required="required"
+																											formControlName="Cardnum">
+																										<span>Card
+																											Number</span>
+																										<i
+																											class="fa fa-eye"></i>
+																									</div>
+																									<div
+																										class="d-flex flex-row">
+																										<div
+																											class="inputbox">
+																											<input
+																												type="date"
+																												min="1"
+																												max="999"
+																												class="form-control"
+																												required="required"
+																												formControlName="Expir">
+																											<span>Expiration
+																												Date</span>
+																										</div>
+																										<div
+																											class="inputbox">
+																											<input
+																												type="text"
+																												min="1"
+																												max="999"
+																												class="form-control"
+																												required="required">
+																											<span>CVV</span>
+																										</div>
+																									</div>
+																									<div
+																										class="px-5 pay">
+																										<button style="margin-left: 227px;
+																											/* margin-right: -63px; */
+																											margin-top: 10px;    width: 103px;" class="btn waed" [mat-dialog-close]="true"
+																											(click)="checkout(obj.featurePrice, obj.featureId)">Pay</button>
+																									</div>
+																								</form>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="tab-pane fade"
+																						id="paypal" role="tabpanel"
+																						aria-labelledby="paypal-tab">
+																						<div class="px-5 mt-5">
+																							<div class="inputbox">
+																								<input type="text"
+																									name="name"
+																									class="form-control"
+																									required="required">
+																								<span>Paypal Email
+																									Address</span>
+																							</div>
+																							<div class="pay px-5">
+																								<button style="margin-left: 227px;
+																													 /* margin-right: -63px; */
+																													 margin-top: 10px;    width: 103px;" class="btn waed">Add paypal</button>
+																							</div>
+																							<!-- <a id="myPaypalButtons" href="https://www.sandbox.paypal.com/webapps/hermes/?sessionID=&targetService4174=hermesnodeweb">Add Paypal</a>
+																													 </div>  -->
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+															</div>
+															<!-- ******************************************************************************* -->
+
+															<a title="" data-group="set2" class="html5lightbox btn2"
+																href="">
+															</a>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-lg-112">
+													<div class="central-meta">
+														<div class="row">
+															<div class="col-lg-4 col-md-6"
+																*ngFor="let obj of featureService.feature">
+																<div class="dig-pro">
+																	<figure>
+
+																		<img src="./assets/Images/Back5.png" alt="">
+																		<div class="user-avatr">
+																			<img src="./assets/{{obj.imagePath}}"
+																				style="height:50px; border: none; border-style: none;  object-fit: contain;"
+																				alt="">
+
+																			<div>
+																				<span></span>
+																				<ins></ins>
+																			</div>
+																		</div>
+																	</figure>
+																	<div class="digi-meta">
+																		<h4><a>{{obj.featureName}}</a></h4>
+																		<p style="    min-height: 135px;">
+																			{{obj.featureDescribtion}}
+																		</p>
+																		<div class="rate">
+																			<ol class="pit-rate">
+																				<li class="rated"><i
+																						class="fa fa-star"></i></li>
+																				<li class="rated"><i
+																						class="fa fa-star"></i></li>
+																				<li class="rated"><i
+																						class="fa fa-star"></i></li>
+																				<li class="rated"><i
+																						class="fa fa-star"></i></li>
+																				<li class=""><i class="fa fa-star"></i>
+																				</li>
+																			</ol>
+																			<span class="qeemat"><span
+																					style="font-size: small; color:gray">{{obj.featureDuration}}
+																					Months
+																				</span>${{obj.featurePrice}}</span>
+																		</div>
+																		<span class="qeemat">
+																			<div style="margin-left: 180px; "
+																				class="more-post-optns">
+
+																			</div>
+																		</span>
+																	</div>
+																</div>
+															</div>
+
+
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+										</div>
+									</div> <!-- sidebar -->
+								</div>
+							</div>

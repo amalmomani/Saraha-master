@@ -1,0 +1,120 @@
+
+<app-header></app-header>
+
+
+<div class="theme-layout">
+
+    <section >
+        <div class="gap gray-bg">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row merged20" id="page-contents">
+                    <!-- <div class="col-lg-12" style="margin-top:25px ;">
+                        <div class="info-section">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-users"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>5412</h4>
+                                            <p>70%</p>
+                                            <span>Total Visitors</span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar" style="width:70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-sign-in"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>4515</h4>
+                                            <p>50%</p>
+                                            <span>New Signups </span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar bg-info" style="width:50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="stat-box">
+                                        <i class="fa fa-envelope"></i>
+                                        <div class="anlytc-meta">
+                                            <h4>8289</h4>
+                                            <p>40%</p>
+                                            <span>Email Enquiries </span> 
+                                        </div>
+                                        <div class="progress" style="height:6px">
+                                            <div class="progress-bar bg-valvot" style="width:60%"></div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+            
+                    <div class="row">
+                      <div class="col-lg-3">
+                          <app-asiderbar></app-asiderbar>
+                  </div><!-- sidebar widgets -->
+    <div class="col-lg-9">
+                <div class="central-meta">
+                    <div class="forum-list">
+                        <h4 class="create-post">Contact US Messages</h4>
+                        <!-- <a class="main-btn" title="" style="margin-bottom:25px ;" mat-button (click)="CreateNewMessage()"> Add Service </a> -->
+
+                        <table  class="table table-responsive">
+                            <thead>
+                                <tr style="text-align: center;">
+                                    <th scope="col-3">Message</th>
+                                    <th scope="col-3"> Email</th>
+                                    <th scope="col-3"></th>
+                                    <th scope="col-3"></th>
+                                </tr>
+                            </thead>
+                            <tbody  >
+                          
+                                <tr *ngFor="let obj of contactUs.Messages" style="text-align:center ;">
+                                    <td>
+                                        <i class="fa fa-comments"></i> 
+                                        <a href="forums-category.html" title="">{{obj.username}}</a>
+                                        <p>{{obj.message}}</p>
+                                    </td>
+                                    <td>{{obj.email}}</td>
+                                    <td class="date-n-reply" style="padding-right:0px ;">
+                                        <a class="addnewforum" style="color: white;" (click)="deleteMessage(obj.contactusid)" title=""> Delete</a>
+                            
+                                    </td><td class="date-n-reply"style="padding-left:10px ;">
+                                        <a [routerLink]="['/admin/email/',obj.username,obj.email]" class="addnewforum" style="color: white;"  title=""> Contact</a>
+                            
+                                    </td>
+                                </tr>
+                           
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                </div>
+         </div>
+                </div>
+            </div>
+      </div>
+    </div>
+</section>
+
+<ng-template #calldeleteDailog>
+    <h2>Are You Sure uyou want to delete this item?</h2>
+    <button mat-dialog-close="yes">Yes</button>
+    <button mat-dialog-close="no">No</button>
+</ng-template>
+
+
+
+
+
+

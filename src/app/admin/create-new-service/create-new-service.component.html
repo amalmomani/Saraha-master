@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Add New Service</h2>
+<mat-dialog-content class="mat-typography">
+ <form [formGroup]="createService">
+
+    <mat-form-field>
+        <mat-label>Feature Name :</mat-label>
+        <input type="text" matInput formControlName="FeatureName" >
+        <mat-error *ngIf="createService.controls['FeatureName'].hasError('required')">
+         Feature Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Feature Price :</mat-label>
+        <input type="number" matInput formControlName="FeaturePrice" >
+        <mat-error *ngIf="createService.controls['FeaturePrice'].hasError('required')">
+         Feature Price is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Feature Duration :</mat-label>
+        <input type="number" matInput formControlName="FeatureDuration" >
+        <mat-error *ngIf="createService.controls['FeatureDuration'].hasError('required')">
+         Feature Duration is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+        <mat-label>Image :</mat-label>
+        <input type="file" #file formControlName="ImagePath" (change)="uploadImage(file.files)" >
+
+ </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)="CreateService()" cdkFocusInitial>Create</button>
+</mat-dialog-actions>
